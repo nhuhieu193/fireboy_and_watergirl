@@ -1,20 +1,43 @@
 # depslib dependency file v1.0
-1710319206 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\main.cpp
+1710348439 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\main.cpp
 	<SDL.h>
 	<SDL_image.h>
 	<bits/stdc++.h>
-	"init_and_background.h"
+	"init.h"
+	"character.h"
+	"texture.h"
 
-1710319131 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\init_and_background.cpp
+1710347256 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\init_and_background.cpp
 	<SDL.h>
 	<SDL_image.h>
-	"getTextureFromFile.h"
 
-1710319069 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\init_and_background.h
+1710347256 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\init_and_background.h
 
 1710318945 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\gettexturefromfile.cpp
 	<SDL.h>
 	<SDL_image.h>
 
 1710318945 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\gettexturefromfile.h
+
+1710344070 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\character.h
+
+1710404898 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\texture.cpp
+	"texture.h"
+
+1710404883 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\texture.h
+	<SDL.h>
+	<SDL_image.h>
+	<iostream>
+
+1710348200 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\init.cpp
+	<SDL.h>
+	<SDL_image.h>
+
+1710347256 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\init.h
+
+1710405110 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\timer.cpp
+	"timer.h"
+
+1710405018 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\timer.h
+	<SDL.h>
 

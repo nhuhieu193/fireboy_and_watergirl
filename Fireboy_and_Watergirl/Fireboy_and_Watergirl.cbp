@@ -31,11 +31,13 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="getTextureFromFile.cpp" />
-		<Unit filename="getTextureFromFile.h" />
-		<Unit filename="init_and_background.cpp" />
-		<Unit filename="init_and_background.h" />
+		<Unit filename="character.h" />
+		<Unit filename="init.cpp" />
+		<Unit filename="init.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="texture.cpp" />
+		<Unit filename="texture.h" />
+		<Unit filename="timer.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

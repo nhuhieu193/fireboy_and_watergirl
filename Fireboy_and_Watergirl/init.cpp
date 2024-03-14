@@ -1,8 +1,6 @@
 #include <SDL.h>
 #include <SDL_image.h>
 
-#include "getTextureFromFile.h"
-
 void Init(SDL_Window*& myWindow, const int& SCREEN_WIDTH , const int& SCREEN_HEIGHT , SDL_Renderer*& myRenderer) {
     SDL_Init(SDL_INIT_VIDEO);
     myWindow = SDL_CreateWindow("Fireboy and watergirl" , SDL_WINDOWPOS_UNDEFINED , SDL_WINDOWPOS_UNDEFINED , SCREEN_WIDTH , SCREEN_HEIGHT , SDL_WINDOW_SHOWN);
@@ -11,6 +9,3 @@ void Init(SDL_Window*& myWindow, const int& SCREEN_WIDTH , const int& SCREEN_HEI
     SDL_SetRenderDrawColor(myRenderer , 0xFF , 0xFF , 0xFF , 0xFF);
 }
 
-void getBackground(SDL_Texture*& background , SDL_Renderer*& myRenderer) {
-    background = getTextureFromFile(myRenderer , "media/background1.png");
-}
