@@ -31,15 +31,13 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="character.cpp" />
-		<Unit filename="character.h" />
-		<Unit filename="init.cpp" />
-		<Unit filename="init.h" />
+		<Unit filename="Engine.cpp" />
+		<Unit filename="Engine.h" />
+		<Unit filename="Transform.h" />
+		<Unit filename="Vector2D.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="texture.cpp" />
 		<Unit filename="texture.h" />
-		<Unit filename="timer.cpp" />
-		<Unit filename="timer.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

@@ -1,13 +1,14 @@
 #ifndef __ENGINE__
 #define __ENGINE__
 
+#include <iostream>
 #include <SDL.h>
 #include <SDL_image.h>
 
-/// source : Youtube tutorial
+/// source : consult from Youtube tutorial
 
-const int SCREEN_WIDTH = 960;
-const int SCREEN_HEIGHT = 640;
+const int SCREEN_WIDTH = 900;
+const int SCREEN_HEIGHT = 600;
 
 class Engine {
     Engine(){};
