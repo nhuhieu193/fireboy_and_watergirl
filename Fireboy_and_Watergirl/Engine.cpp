@@ -3,9 +3,12 @@
 #include "Vector2D.h"
 #include "Transform.h"
 
+#include "Fireboy.h"
+
 /// source : consult from Youtube tutorial
 
 Engine* Engine::s_Instance = NULL;
+Fireboy* FireboyPlayer = NULL;
 
 void Engine::Events() {
     SDL_Event event;
@@ -27,11 +30,30 @@ bool Engine::Init() {
 
     Texture::GetInstance() -> Load("background" , "media/background1.png");
 
+    Texture::GetInstance() -> Load("fireboy" , "media/fireboy.png");
+
+    FireboyPlayer = new Fireboy(new Properties("fireboy" , 100 , 0 , 40 , 66));
+
     return true;
 }
 void Engine::Update() {
+    FireboyPlayer -> Update(0.05);
 
 }
+
+void Engine::Render() {
+
+//    Texture::GetInstance() -> Draw("background" , 0 , 0 , SCREEN_WIDTH , SCREEN_HEIGHT);
+//    Texture::GetInstance() -> Draw("fireboy" , 200 , 300 , 40 , 66);
+
+    SDL_SetRenderDrawColor(myRenderer , 0xFF , 0xFF , 0xFF , 0xFF);
+    SDL_RenderClear(myRenderer);
+
+    FireboyPlayer -> Draw();
+
+    SDL_RenderPresent(myRenderer);
+}
+
 void Engine::Quit() {
     m_isRunning = false;
 }
@@ -41,10 +63,4 @@ bool Engine::Clean() {
     SDL_DestroyRenderer(myRenderer);
     IMG_Quit();
     SDL_Quit();
-}
-void Engine::Render() {
-//    SDL_SetRenderDrawColor(myRenderer , 0xFF , 0xFF , 0xFF , 0xFF);
-//    SDL_RenderClear(myRenderer);
-    Texture::GetInstance() -> Draw("background" , 0 , 0 , SCREEN_WIDTH , SCREEN_HEIGHT);
-    SDL_RenderPresent(myRenderer);
 }

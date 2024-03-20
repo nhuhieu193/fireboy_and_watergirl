@@ -3,6 +3,8 @@
 
 #include "IObject.h"
 #include "Transform.h"
+#include <iostream>
+#include <SDL.h>
 
 struct Properties {
     Properties(std::string textureID , double x , double y , int width , int height , SDL_RendererFlip flip = SDL_FLIP_NONE) {
