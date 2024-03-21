@@ -26,7 +26,7 @@ public:
     bool Init();
     void Update();
     void Quit();
-    bool Clean();
+    void Clean();
     void Render();
 
     inline SDL_Renderer* GetRenderer() {

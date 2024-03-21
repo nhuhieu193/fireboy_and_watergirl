@@ -33,8 +33,13 @@
 		</Compiler>
 		<Unit filename="Engine.cpp" />
 		<Unit filename="Engine.h" />
+		<Unit filename="EventHandler.cpp" />
+		<Unit filename="EventHandler.h" />
+		<Unit filename="Fireboy.cpp" />
+		<Unit filename="Fireboy.h" />
 		<Unit filename="GameObject.h" />
 		<Unit filename="IObject.h" />
+		<Unit filename="RigidBody.h" />
 		<Unit filename="Transform.h" />
 		<Unit filename="Vector2D.h" />
 		<Unit filename="main.cpp" />

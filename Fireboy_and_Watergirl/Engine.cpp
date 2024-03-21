@@ -3,21 +3,21 @@
 #include "Vector2D.h"
 #include "Transform.h"
 
+#include <vector>
+
 #include "Fireboy.h"
+#include "Wall.h"
+#include "EventHandler.h"
 
 /// source : consult from Youtube tutorial
+
+const int OBJECT_SIZE = 30;
 
 Engine* Engine::s_Instance = NULL;
 Fireboy* FireboyPlayer = NULL;
 
 void Engine::Events() {
-    SDL_Event event;
-    SDL_PollEvent(&event);
-    switch (event.type) {
-    case SDL_QUIT:
-        Quit();
-        break;
-    }
+    EventHandler::GetInstance() -> Listen();
 }
 
 bool Engine::Init() {
@@ -34,11 +34,21 @@ bool Engine::Init() {
 
     FireboyPlayer = new Fireboy(new Properties("fireboy" , 100 , 0 , 40 , 66));
 
+    Texture::GetInstance() -> Load("brick" , "stuffmedia/brick.png");
+
+    for (int i = 0 ; i < SCREEN_WIDTH ; i += OBJECT_SIZE) {
+        Wall::GetInstance() -> WallList.push_back(new Wall(new Properties("brick" , i , SCREEN_HEIGHT - OBJECT_SIZE , OBJECT_SIZE , OBJECT_SIZE)));
+    }
+
     return true;
 }
+
 void Engine::Update() {
     FireboyPlayer -> Update(0.05);
-
+//    Texture::GetInstance() -> Draw("brick" , 300 , 300 , 30 , 30);
+    for (auto e : Wall::GetInstance() -> WallList) {
+        e -> Draw();
+    }
 }
 
 void Engine::Render() {
@@ -46,8 +56,8 @@ void Engine::Render() {
 //    Texture::GetInstance() -> Draw("background" , 0 , 0 , SCREEN_WIDTH , SCREEN_HEIGHT);
 //    Texture::GetInstance() -> Draw("fireboy" , 200 , 300 , 40 , 66);
 
-    SDL_SetRenderDrawColor(myRenderer , 0xFF , 0xFF , 0xFF , 0xFF);
-    SDL_RenderClear(myRenderer);
+//    SDL_SetRenderDrawColor(myRenderer , 0xFF , 0xFF , 0xFF , 0xFF);
+//    SDL_RenderClear(myRenderer);
 
     FireboyPlayer -> Draw();
 
@@ -57,7 +67,7 @@ void Engine::Render() {
 void Engine::Quit() {
     m_isRunning = false;
 }
-bool Engine::Clean() {
+void Engine::Clean() {
     Texture::GetInstance() -> Clean();
     SDL_DestroyWindow(myWindow);
     SDL_DestroyRenderer(myRenderer);

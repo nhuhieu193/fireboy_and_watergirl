@@ -1,12 +1,15 @@
 # depslib dependency file v1.0
-1710901500 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\engine.cpp
+1711040440 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\engine.cpp
 	"Engine.h"
 	"texture.h"
 	"Vector2D.h"
 	"Transform.h"
+	<vector>
 	"Fireboy.h"
+	"Wall.h"
+	"EventHandler.h"
 
-1710513876 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\engine.h
+1711038027 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\engine.h
 	<iostream>
 	<SDL.h>
 	<SDL_image.h>
@@ -32,22 +35,44 @@
 1710871544 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\transform.h
 	"Vector2D.h"
 
-1710864956 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\gameobject.h
-	"IObject.h"
+1711039388 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\gameobject.h
 	"Transform.h"
 	<iostream>
 	<SDL.h>
 
-1710519535 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\iobject.h
+1711038640 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\iobject.h
 
-1710871673 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\fireboy.cpp
+1711037088 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\fireboy.cpp
 	"Fireboy.h"
 	"texture.h"
+	"Wall.h"
 
-1710871150 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\fireboy.h
-	"GameObject.h"
+1711041019 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\fireboy.h
 	"RigidBody.h"
+	"Properties.h"
+	"Wall.h"
 
 1710901862 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\rigidbody.h
 	"Vector2D.h"
+
+1710952205 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\eventhandler.cpp
+	"EventHandler.h"
+	"Engine.h"
+
+1710947877 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\eventhandler.h
+	<SDL.h>
+
+1711039777 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\wall.cpp
+	"Wall.h"
+	"texture.h"
+
+1711040519 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\wall.h
+	"Properties.h"
+	<vector>
+
+1711040094 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\properties.h
+	"Transform.h"
+	<SDL.h>
+	<iostream>
+	"texture.h"
 
