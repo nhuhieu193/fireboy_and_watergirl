@@ -9,6 +9,7 @@
 
 const int SCREEN_WIDTH = 900;
 const int SCREEN_HEIGHT = 600;
+const int OBJECT_SIZE = 30;
 
 class Engine {
     Engine(){};

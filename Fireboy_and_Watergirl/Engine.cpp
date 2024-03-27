@@ -6,15 +6,17 @@
 #include <vector>
 
 #include "Fireboy.h"
-#include "Wall.h"
 #include "EventHandler.h"
+
+#include "Timer.h"
+#include "Map.h"
 
 /// source : consult from Youtube tutorial
 
-const int OBJECT_SIZE = 30;
-
 Engine* Engine::s_Instance = NULL;
 Fireboy* FireboyPlayer = NULL;
+
+Map* Introduction = NULL;
 
 void Engine::Events() {
     EventHandler::GetInstance() -> Listen();
@@ -29,44 +31,37 @@ bool Engine::Init() {
     myRenderer = SDL_CreateRenderer(myWindow , -1 , SDL_RENDERER_ACCELERATED);
 
     Texture::GetInstance() -> Load("background" , "media/background1.png");
-
     Texture::GetInstance() -> Load("fireboy" , "media/fireboy.png");
 
-    FireboyPlayer = new Fireboy(new Properties("fireboy" , 100 , 0 , 40 , 66));
+    FireboyPlayer = new Fireboy(new Properties("fireboy" , 100 , 400 , 29 , 59));
 
-    Texture::GetInstance() -> Load("brick" , "stuffmedia/brick.png");
 
-    for (int i = 0 ; i < SCREEN_WIDTH ; i += OBJECT_SIZE) {
-        Wall::GetInstance() -> WallList.push_back(new Wall(new Properties("brick" , i , SCREEN_HEIGHT - OBJECT_SIZE , OBJECT_SIZE , OBJECT_SIZE)));
-    }
+    Texture::GetInstance() -> Load("wall" , "stuffmedia/brick.png");
+
+    Introduction = new Map("maplevel/introduction.txt");
 
     return true;
 }
 
 void Engine::Update() {
-    FireboyPlayer -> Update(0.05);
-//    Texture::GetInstance() -> Draw("brick" , 300 , 300 , 30 , 30);
-    for (auto e : Wall::GetInstance() -> WallList) {
-        e -> Draw();
-    }
+    FireboyPlayer -> Update(1.0 / FPS , EventHandler::GetInstance() -> Left() , EventHandler::GetInstance() -> Up() , EventHandler::GetInstance() -> Right());
 }
 
 void Engine::Render() {
-
-//    Texture::GetInstance() -> Draw("background" , 0 , 0 , SCREEN_WIDTH , SCREEN_HEIGHT);
-//    Texture::GetInstance() -> Draw("fireboy" , 200 , 300 , 40 , 66);
-
-//    SDL_SetRenderDrawColor(myRenderer , 0xFF , 0xFF , 0xFF , 0xFF);
-//    SDL_RenderClear(myRenderer);
+    Timer::GetInstance() -> TimerDelay();
+    SDL_SetRenderDrawColor(myRenderer , 0xFF , 0xFF , 0xFF , 0xFF);
+    SDL_RenderClear(myRenderer);
 
     FireboyPlayer -> Draw();
 
+    Introduction -> Draw();
     SDL_RenderPresent(myRenderer);
 }
 
 void Engine::Quit() {
     m_isRunning = false;
 }
+
 void Engine::Clean() {
     Texture::GetInstance() -> Clean();
     SDL_DestroyWindow(myWindow);

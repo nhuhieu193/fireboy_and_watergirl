@@ -1,5 +1,6 @@
 #include "EventHandler.h"
 #include "Engine.h"
+#include "Fireboy.h"
 
 EventHandler* EventHandler::s_Instance = NULL;
 

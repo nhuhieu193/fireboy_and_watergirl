@@ -17,6 +17,15 @@ public:
     }
 
     void Listen();
+    bool Left() {
+        return m_KeyboardState[SDL_SCANCODE_LEFT];
+    }
+    bool Up() {
+        return m_KeyboardState[SDL_SCANCODE_UP];
+    }
+    bool Right() {
+        return m_KeyboardState[SDL_SCANCODE_RIGHT];
+    }
 };
 
 #endif // __EVENTHANDLER__
