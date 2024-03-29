@@ -10,8 +10,11 @@
 const int SCREEN_WIDTH = 900;
 const int SCREEN_HEIGHT = 600;
 const int OBJECT_SIZE = 30;
-const int CHARACTER_WIDTH = 29;
-const int CHARACTER_HEIGHT = 59;
+//const int CHARACTER_WIDTH = 29;
+//const int CHARACTER_HEIGHT = 59;
+const int CHARACTER_WIDTH = 40;
+const int CHARACTER_HEIGHT = 61;
+
 
 #include "Map.h"
 

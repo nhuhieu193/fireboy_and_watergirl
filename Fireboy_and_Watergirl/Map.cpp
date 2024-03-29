@@ -47,22 +47,12 @@ Map::Map(string src) {
     for (int col = __SCREEN_WIDTH - 2 ; col >= 0 ; col--) {
         for (int row = 0 ; row < __SCREEN_HEIGHT ; row++) if (Right[col][row] == -1) Right[col][row] = Right[col + 1][row];
     }
-//    for (int i = 495 ; i < 535 ; i++) {
-//        for (int j = 535; j < 575 ; j++) {
-////            if (Down[i][j] > 1000) {
-////                std::cout << i << " " << j << '\n';
-////                exit(0);
-////            }
-//            std::cout << Left[i][j] << " ";
-//        }
-//        std::cout << '\n';
-//    }
-//    exit(0);
 }
 
 bool Map::OnGround(const Vector2D& vect) {
     int x = vect.X , y = vect.Y;
-    return y + __CHARACTER_HEIGHT == Down[x][y];
+    for (int i = x ; i < x + __CHARACTER_WIDTH - 1; i++) if (y + __CHARACTER_HEIGHT == Down[i][y]) return true;
+    return false;
 }
 
 

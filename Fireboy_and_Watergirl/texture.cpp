@@ -19,6 +19,13 @@ void Texture::Draw(std::string id , int x , int y , int width , int height , SDL
     SDL_RenderCopyEx(Engine::GetInstance() -> GetRenderer() , m_TextureMap[id] , &srcRect , &dstRect , 0 , NULL , flip);
 }
 
+void Texture::DrawFrame(std::string id , int x , int y , int subX , int subY , int frame , SDL_RendererFlip flip) {
+    SDL_Rect srcRect = {0 + frame * 100, 0 , 100 , 100};
+    SDL_Rect dstRect = {x - subX, y - subY, 100 , 100};
+    SDL_RenderCopyEx(Engine::GetInstance() -> GetRenderer() , m_TextureMap[id] , &srcRect , &dstRect , 0 , NULL , flip);
+}
+
+
 void Texture::Drop(std::string id){
     SDL_DestroyTexture(m_TextureMap[id]);
     m_TextureMap.erase(id);

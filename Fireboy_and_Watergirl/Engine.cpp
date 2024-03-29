@@ -28,7 +28,8 @@ bool Engine::Init() {
     myRenderer = SDL_CreateRenderer(myWindow , -1 , SDL_RENDERER_ACCELERATED);
 
     Texture::GetInstance() -> Load("background" , "media/background1.png");
-    Texture::GetInstance() -> Load("fireboy" , "media/fireboy.png");
+    Texture::GetInstance() -> Load("fireboy" , "media/fireboy_animation.png");
+    Texture::GetInstance() -> Load("running" , "media/running_animation.png");
 
     FireboyPlayer = new Fireboy(new Properties("fireboy" , 100 , 400 , CHARACTER_WIDTH , CHARACTER_HEIGHT));
 
@@ -49,7 +50,7 @@ void Engine::Render() {
     SDL_SetRenderDrawColor(myRenderer , 0xFF , 0xFF , 0xFF , 0xFF);
     SDL_RenderClear(myRenderer);
 
-    FireboyPlayer -> Draw();
+    FireboyPlayer -> Draw(EventHandler::GetInstance() -> Left() , EventHandler::GetInstance() -> Right());
 
     Engine::GetInstance() -> CurrentMap -> Draw();
     SDL_RenderPresent(myRenderer);
