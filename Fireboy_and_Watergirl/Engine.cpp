@@ -9,14 +9,11 @@
 #include "EventHandler.h"
 
 #include "Timer.h"
-#include "Map.h"
 
 /// source : consult from Youtube tutorial
 
 Engine* Engine::s_Instance = NULL;
 Fireboy* FireboyPlayer = NULL;
-
-Map* Introduction = NULL;
 
 void Engine::Events() {
     EventHandler::GetInstance() -> Listen();
@@ -33,12 +30,12 @@ bool Engine::Init() {
     Texture::GetInstance() -> Load("background" , "media/background1.png");
     Texture::GetInstance() -> Load("fireboy" , "media/fireboy.png");
 
-    FireboyPlayer = new Fireboy(new Properties("fireboy" , 100 , 400 , 29 , 59));
+    FireboyPlayer = new Fireboy(new Properties("fireboy" , 100 , 400 , CHARACTER_WIDTH , CHARACTER_HEIGHT));
 
 
     Texture::GetInstance() -> Load("wall" , "stuffmedia/brick.png");
 
-    Introduction = new Map("maplevel/introduction.txt");
+    Engine::GetInstance() -> CurrentMap = new Map("maplevel/introduction.txt");
 
     return true;
 }
@@ -54,7 +51,7 @@ void Engine::Render() {
 
     FireboyPlayer -> Draw();
 
-    Introduction -> Draw();
+    Engine::GetInstance() -> CurrentMap -> Draw();
     SDL_RenderPresent(myRenderer);
 }
 

@@ -45,8 +45,6 @@
 		<Unit filename="Timer.h" />
 		<Unit filename="Transform.h" />
 		<Unit filename="Vector2D.h" />
-		<Unit filename="Wall.cpp" />
-		<Unit filename="Wall.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="texture.cpp" />
 		<Unit filename="texture.h" />
