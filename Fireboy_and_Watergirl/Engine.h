@@ -5,13 +5,12 @@
 #include <SDL.h>
 #include <SDL_image.h>
 
-/// source : consult from Youtube tutorial
+#include "EventHandler.h"
+#include "Timer.h"
 
 const int SCREEN_WIDTH = 900;
 const int SCREEN_HEIGHT = 600;
 const int OBJECT_SIZE = 30;
-//const int CHARACTER_WIDTH = 29;
-//const int CHARACTER_HEIGHT = 59;
 const int CHARACTER_WIDTH = 40;
 const int CHARACTER_HEIGHT = 61;
 
@@ -28,6 +27,7 @@ class Engine {
 
 public:
     Map* CurrentMap = NULL;
+    int GameStage = 0;
 
     static Engine* GetInstance() {
         return s_Instance = (s_Instance != NULL ? s_Instance : new Engine());

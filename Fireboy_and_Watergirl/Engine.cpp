@@ -5,15 +5,10 @@
 
 #include <vector>
 
-#include "Fireboy.h"
-#include "EventHandler.h"
-
-#include "Timer.h"
-
-/// source : consult from Youtube tutorial
+#include "BackgroundStage.h"
+#include "GameStage1.h"
 
 Engine* Engine::s_Instance = NULL;
-Fireboy* FireboyPlayer = NULL;
 
 void Engine::Events() {
     EventHandler::GetInstance() -> Listen();
@@ -31,9 +26,6 @@ bool Engine::Init() {
     Texture::GetInstance() -> Load("fireboy" , "media/fireboy_animation.png");
     Texture::GetInstance() -> Load("running" , "media/running_animation.png");
 
-    FireboyPlayer = new Fireboy(new Properties("fireboy" , 100 , 400 , CHARACTER_WIDTH , CHARACTER_HEIGHT));
-
-
     Texture::GetInstance() -> Load("wall" , "stuffmedia/brick.png");
 
     Engine::GetInstance() -> CurrentMap = new Map("maplevel/introduction.txt");
@@ -42,7 +34,10 @@ bool Engine::Init() {
 }
 
 void Engine::Update() {
-    FireboyPlayer -> Update(1.0 / FPS , EventHandler::GetInstance() -> Left() , EventHandler::GetInstance() -> Up() , EventHandler::GetInstance() -> Right());
+    switch (GameStage) {
+        case 1: GameStage1::GetInstance() -> Update();
+    }
+//    FireboyPlayer -> Update(1.0 / FPS , EventHandler::GetInstance() -> Left() , EventHandler::GetInstance() -> Up() , EventHandler::GetInstance() -> Right());
 }
 
 void Engine::Render() {
@@ -50,9 +45,10 @@ void Engine::Render() {
     SDL_SetRenderDrawColor(myRenderer , 0xFF , 0xFF , 0xFF , 0xFF);
     SDL_RenderClear(myRenderer);
 
-    FireboyPlayer -> Draw(EventHandler::GetInstance() -> Left() , EventHandler::GetInstance() -> Right());
-
-    Engine::GetInstance() -> CurrentMap -> Draw();
+    switch (GameStage) {
+        case 0: BackgroundStage::GetInstance() -> Implement();break;
+        case 1: GameStage1::GetInstance() -> Render();break;
+    }
     SDL_RenderPresent(myRenderer);
 }
 

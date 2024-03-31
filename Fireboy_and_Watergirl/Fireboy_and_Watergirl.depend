@@ -1,18 +1,19 @@
 # depslib dependency file v1.0
-1711740404 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\engine.cpp
+1711875102 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\engine.cpp
 	"Engine.h"
 	"texture.h"
 	"Vector2D.h"
 	"Transform.h"
 	<vector>
-	"Fireboy.h"
-	"EventHandler.h"
-	"Timer.h"
+	"BackgroundStage.h"
+	"GameStage1.h"
 
-1711738936 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\engine.h
+1711875109 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\engine.h
 	<iostream>
 	<SDL.h>
 	<SDL_image.h>
+	"EventHandler.h"
+	"Timer.h"
 	"Map.h"
 
 1711703572 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\main.cpp
@@ -20,14 +21,14 @@
 	<SDL_image.h>
 	"Engine.h"
 
-1711738708 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\texture.h
+1711741864 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\texture.h
 	<SDL.h>
 	<SDL_image.h>
 	<string>
 	<map>
 	"Engine.h"
 
-1711738749 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\texture.cpp
+1711741864 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\texture.cpp
 	"texture.h"
 	"Engine.h"
 
@@ -51,7 +52,7 @@
 	"Fireboy.h"
 	"texture.h"
 
-1711740404 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\fireboy.h
+1711768985 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\fireboy.h
 	"RigidBody.h"
 	"Properties.h"
 
@@ -87,7 +88,7 @@
 1711739301 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\timer.cpp
 	"Timer.h"
 
-1711738953 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\map.h
+1711741825 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\map.h
 	<vector>
 	<string>
 	"Vector2D.h"
@@ -96,4 +97,15 @@
 	"Map.h"
 	<fstream>
 	"texture.h"
+
+1711874597 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\backgroundstage.cpp
+	"BackgroundStage.h"
+	"texture.h"
+
+1711874030 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\backgroundstage.h
+	"Engine.h"
+
+1711875009 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\gamestage1.h
+	"Engine.h"
+	"Fireboy.h"
 

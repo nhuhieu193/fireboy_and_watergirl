@@ -21,7 +21,6 @@ public:
     }
 
     bool Load(std::string id , std::string filename);
-    void Drop(std::string id);
     void Clean();
 
     void Draw(std::string id , int x , int y , int width , int height , SDL_RendererFlip flip = SDL_FLIP_NONE);

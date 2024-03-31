@@ -25,12 +25,6 @@ void Texture::DrawFrame(std::string id , int x , int y , int subX , int subY , i
     SDL_RenderCopyEx(Engine::GetInstance() -> GetRenderer() , m_TextureMap[id] , &srcRect , &dstRect , 0 , NULL , flip);
 }
 
-
-void Texture::Drop(std::string id){
-    SDL_DestroyTexture(m_TextureMap[id]);
-    m_TextureMap.erase(id);
-}
-
 void Texture::Clean() {
     for (std::map<std::string , SDL_Texture*>::iterator it = m_TextureMap.begin(); it != m_TextureMap.end() ; it++)
         SDL_DestroyTexture(it -> second);

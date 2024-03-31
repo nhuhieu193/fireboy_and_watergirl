@@ -22,7 +22,7 @@ public:
         m_Transform = new Transform(props -> X , props -> Y);
         m_RigidBody = new RigidBody();
         numFrame = 4;
-        AnimationSpeed = 100;
+        AnimationSpeed = 128;
         subX = 30;
         subY = 29;
         TextureRunning = "running";
