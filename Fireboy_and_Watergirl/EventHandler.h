@@ -26,6 +26,16 @@ public:
     bool Right() {
         return m_KeyboardState[SDL_SCANCODE_RIGHT];
     }
+
+    bool KeyA() {
+        return m_KeyboardState[SDL_SCANCODE_A];
+    }
+    bool KeyW() {
+        return m_KeyboardState[SDL_SCANCODE_W];
+    }
+    bool KeyD() {
+        return m_KeyboardState[SDL_SCANCODE_D];
+    }
 };
 
 #endif // __EVENTHANDLER__

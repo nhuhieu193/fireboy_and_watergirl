@@ -3,6 +3,7 @@
 
 #include "Engine.h"
 #include "Fireboy.h"
+#include "Watergirl.h"
 
 class GameStage1 {
     static GameStage1* s_Instance;

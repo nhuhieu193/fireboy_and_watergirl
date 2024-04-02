@@ -16,6 +16,7 @@ public:
     }
     void Implement();
     bool PlayClicked();
+    bool PlayTouched();
 };
 
 #endif // __BACKGROUNDSTAGE__

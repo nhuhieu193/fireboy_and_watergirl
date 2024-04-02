@@ -31,12 +31,16 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="BackgroundStage.cpp" />
+		<Unit filename="BackgroundStage.h" />
 		<Unit filename="Engine.cpp" />
 		<Unit filename="Engine.h" />
 		<Unit filename="EventHandler.cpp" />
 		<Unit filename="EventHandler.h" />
 		<Unit filename="Fireboy.cpp" />
 		<Unit filename="Fireboy.h" />
+		<Unit filename="GameStage1.cpp" />
+		<Unit filename="GameStage1.h" />
 		<Unit filename="Map.cpp" />
 		<Unit filename="Map.h" />
 		<Unit filename="Properties.h" />

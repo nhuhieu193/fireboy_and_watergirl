@@ -1,9 +1,10 @@
-#ifndef __FIREBOY__
-#define __FIREBOY__
+#ifndef __WATERGIRL__
+#define __WATERGIRL__
 
 #include "RigidBody.h"
 #include "Properties.h"
-class Fireboy{
+
+class Watergirl{
     std::string m_TextureID;
     SDL_RendererFlip m_Flip;
 
@@ -17,7 +18,7 @@ public:
     Transform* m_Transform;
     RigidBody* m_RigidBody;
 
-    Fireboy(Properties* props) : m_TextureID(props -> TextureID) ,
+    Watergirl(Properties* props) : m_TextureID(props -> TextureID) ,
         m_Width(props -> Width) , m_Height(props -> Height) , m_Flip(props -> Flip) {
         m_Transform = new Transform(props -> X , props -> Y);
         m_RigidBody = new RigidBody();
@@ -25,11 +26,12 @@ public:
         AnimationSpeed = 128;
         subX = 30;
         subY = 29;
-        TextureRunning = "fireboy_running";
+        TextureRunning = "watergirl_running";
     }
 
     void Update(double dt, bool Left , bool Up , bool Right);
     void Draw(bool Left , bool Right);
 };
 
-#endif // __FIREBOY__
+#endif // __WATERGIRL__
+

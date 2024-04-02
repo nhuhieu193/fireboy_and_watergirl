@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1711875102 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\engine.cpp
+1712081501 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\engine.cpp
 	"Engine.h"
 	"texture.h"
 	"Vector2D.h"
@@ -52,7 +52,7 @@
 	"Fireboy.h"
 	"texture.h"
 
-1711768985 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\fireboy.h
+1712081114 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\fireboy.h
 	"RigidBody.h"
 	"Properties.h"
 
@@ -60,12 +60,11 @@
 	<iostream>
 	"Vector2D.h"
 
-1711276860 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\eventhandler.cpp
+1712068946 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\eventhandler.cpp
 	"EventHandler.h"
 	"Engine.h"
-	"Fireboy.h"
 
-1711277085 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\eventhandler.h
+1712068721 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\eventhandler.h
 	<SDL.h>
 
 1711039777 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\wall.cpp
@@ -98,14 +97,26 @@
 	<fstream>
 	"texture.h"
 
-1711874597 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\backgroundstage.cpp
+1712043415 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\backgroundstage.cpp
 	"BackgroundStage.h"
 	"texture.h"
 
-1711874030 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\backgroundstage.h
+1711877931 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\backgroundstage.h
 	"Engine.h"
 
-1711875009 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\gamestage1.h
+1712068738 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\gamestage1.h
 	"Engine.h"
 	"Fireboy.h"
+	"Watergirl.h"
+
+1712081487 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\gamestage1.cpp
+	"GameStage1.h"
+
+1712081118 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\watergirl.h
+	"RigidBody.h"
+	"Properties.h"
+
+1712068721 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\watergirl.cpp
+	"Watergirl.h"
+	"texture.h"
 

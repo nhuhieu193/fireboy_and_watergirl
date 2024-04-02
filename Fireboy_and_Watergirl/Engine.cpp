@@ -22,13 +22,18 @@ bool Engine::Init() {
     myWindow = SDL_CreateWindow("Fireboy and watergirl" , SDL_WINDOWPOS_UNDEFINED , SDL_WINDOWPOS_UNDEFINED , SCREEN_WIDTH , SCREEN_HEIGHT , SDL_WINDOW_SHOWN);
     myRenderer = SDL_CreateRenderer(myWindow , -1 , SDL_RENDERER_ACCELERATED);
 
-    Texture::GetInstance() -> Load("background" , "media/background1.png");
-    Texture::GetInstance() -> Load("fireboy" , "media/fireboy_animation.png");
-    Texture::GetInstance() -> Load("running" , "media/running_animation.png");
+    Texture::GetInstance() -> Load("IntroBackground" , "media/IntroBackground.png");
+    Texture::GetInstance() -> Load("PlayTouched" , "media/PlayTouched.png");
+    Texture::GetInstance() -> Load("background" , "media/bg.png");
+
+    Texture::GetInstance() -> Load("fireboy_idle" , "media/fireboy_idle.png");
+    Texture::GetInstance() -> Load("watergirl_idle" , "media/watergirl_idle.png");
+    Texture::GetInstance() -> Load("fireboy_running" , "media/fireboy_running.png");
+    Texture::GetInstance() -> Load("watergirl_running" , "media/watergirl_running.png");
 
     Texture::GetInstance() -> Load("wall" , "stuffmedia/brick.png");
 
-    Engine::GetInstance() -> CurrentMap = new Map("maplevel/introduction.txt");
+    Engine::GetInstance() -> CurrentMap = new Map("maplevel/stage1.txt");
 
     return true;
 }
@@ -37,7 +42,6 @@ void Engine::Update() {
     switch (GameStage) {
         case 1: GameStage1::GetInstance() -> Update();
     }
-//    FireboyPlayer -> Update(1.0 / FPS , EventHandler::GetInstance() -> Left() , EventHandler::GetInstance() -> Up() , EventHandler::GetInstance() -> Right());
 }
 
 void Engine::Render() {
