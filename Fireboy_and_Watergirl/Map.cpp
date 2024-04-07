@@ -62,8 +62,8 @@ void Map::Draw() {
 
 bool Map::CollideWithLava(double x , double y , int width , int height) {
     for (pair<int,int> e : LavaList) {
-        if (e.first > x + width || e.first + __OBJECT_SIZE < x) continue;
-        if (e.second + 1 > y + height || e.second + 16 < y) continue;
+        if (e.first >= x + width || e.first + __OBJECT_SIZE <= x) continue;
+        if (e.second + 1 >= y + height || e.second + 16 <= y) continue;
         return true;
     }
     return false;
@@ -71,8 +71,8 @@ bool Map::CollideWithLava(double x , double y , int width , int height) {
 
 bool Map::CollideWithWater(double x , double y , int width , int height) {
     for (pair<int,int> e : WaterList) {
-        if (e.first > x + width || e.first + __OBJECT_SIZE < x) continue;
-        if (e.second + 1 > y + height || e.second + 16 < y) continue;
+        if (e.first >= x + width || e.first + __OBJECT_SIZE <= x) continue;
+        if (e.second + 1 >= y + height || e.second + 16 <= y) continue;
         return true;
     }
     return false;
@@ -80,8 +80,8 @@ bool Map::CollideWithWater(double x , double y , int width , int height) {
 
 bool Map::CollideWithGreenGoo(double x , double y , int width , int height) {
     for (pair<int,int> e : GreenGooList) {
-        if (e.first > x + width || e.first + __OBJECT_SIZE < x) continue;
-        if (e.second + 1 > y + height || e.second + 16 < y) continue;
+        if (e.first >= x + width || e.first + __OBJECT_SIZE <= x) continue;
+        if (e.second + 1 >= y + height || e.second + 16 <= y) continue;
         return true;
     }
     return false;

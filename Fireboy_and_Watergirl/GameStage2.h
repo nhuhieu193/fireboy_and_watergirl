@@ -13,6 +13,15 @@ class GameStage2 {
     Watergirl* WatergirlPlayer = NULL;
     FireboyDoor* fireboyDoor = NULL;
     WatergirlDoor* watergirlDoor = NULL;
+
+    int StageOver = 0;
+    int StageOverCountTicks = 0;
+    int SmokeFrames = 12;
+    int SmokeAnimationSpeed = 10;
+    int CoordinateSmokeX , CoordinateSmokeY;
+
+    void UpdateStageOver();
+
 public:
     GameStage2();
     static GameStage2* GetInstance() {

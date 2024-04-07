@@ -1,8 +1,6 @@
 #include "texture.h"
 #include "Engine.h"
 
-/// source : consult from Youtube tutorial
-
 Texture* Texture::s_Instance = NULL;
 
 bool Texture::Load(std::string id , std::string filename) {
@@ -35,6 +33,10 @@ void Texture::DrawLiquid(std::string id , int x , int y , int width , int height
     SDL_Rect srcRect = {frame * 6 , 0 , width , height};
     SDL_Rect dstRect = {x , y , width , height};
     SDL_RenderCopyEx(Engine::GetInstance() -> GetRenderer() , m_TextureMap[id] , &srcRect , &dstRect , 0 , NULL , SDL_FLIP_NONE);
+}
+
+void Texture::DrawSmoke(int x , int y , int frame) {
+    DrawFrame("smoke" , x , y , 30 , 29 , frame , SDL_FLIP_NONE);
 }
 
 void Texture::Clean() {

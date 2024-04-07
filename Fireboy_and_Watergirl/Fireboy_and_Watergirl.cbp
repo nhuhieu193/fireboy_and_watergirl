@@ -40,6 +40,8 @@
 		<Unit filename="Fireboy.cpp" />
 		<Unit filename="Fireboy.h" />
 		<Unit filename="FireboyDoor.h" />
+		<Unit filename="GameOver.cpp" />
+		<Unit filename="GameOver.h" />
 		<Unit filename="GameStage1.cpp" />
 		<Unit filename="GameStage1.h" />
 		<Unit filename="GameStage2.cpp" />
