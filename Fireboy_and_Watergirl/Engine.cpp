@@ -6,7 +6,9 @@
 #include <vector>
 
 #include "BackgroundStage.h"
+#include "GameOver.h"
 #include "GameStage1.h"
+#include "GameStage2.h"
 
 Engine* Engine::s_Instance = NULL;
 
@@ -31,16 +33,19 @@ bool Engine::Init() {
     Texture::GetInstance() -> Load("fireboy_running" , "media/fireboy_running.png");
     Texture::GetInstance() -> Load("watergirl_running" , "media/watergirl_running.png");
 
-    Texture::GetInstance() -> Load("wall" , "stuffmedia/brick.png");
+    Texture::GetInstance() -> Load("brick" , "media/brick.png");
+    Texture::GetInstance() -> Load("door" , "media/Door.png");
 
-    Engine::GetInstance() -> CurrentMap = new Map("maplevel/stage1.txt");
-
+    Texture::GetInstance() -> Load("lava" , "media/lava.png");
+    Texture::GetInstance() -> Load("water" , "media/water.png");
+    Texture::GetInstance() -> Load("greengoo" , "media/greengoo.png");
     return true;
 }
 
 void Engine::Update() {
-    switch (GameStage) {
-        case 1: GameStage1::GetInstance() -> Update();
+    switch (GameStage + 0) {
+        case 1: GameStage1::GetInstance() -> Update();break;
+        case 2: GameStage2::GetInstance() -> Update();break;
     }
 }
 
@@ -49,9 +54,11 @@ void Engine::Render() {
     SDL_SetRenderDrawColor(myRenderer , 0xFF , 0xFF , 0xFF , 0xFF);
     SDL_RenderClear(myRenderer);
 
-    switch (GameStage) {
+    switch (GameStage + 0) {
         case 0: BackgroundStage::GetInstance() -> Implement();break;
         case 1: GameStage1::GetInstance() -> Render();break;
+        case 2: GameStage2::GetInstance() -> Render();break;
+        case 3: GameOver::GetInstance() -> Implement();break;
     }
     SDL_RenderPresent(myRenderer);
 }

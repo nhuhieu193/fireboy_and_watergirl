@@ -39,8 +39,11 @@
 		<Unit filename="EventHandler.h" />
 		<Unit filename="Fireboy.cpp" />
 		<Unit filename="Fireboy.h" />
+		<Unit filename="FireboyDoor.h" />
 		<Unit filename="GameStage1.cpp" />
 		<Unit filename="GameStage1.h" />
+		<Unit filename="GameStage2.cpp" />
+		<Unit filename="GameStage2.h" />
 		<Unit filename="Map.cpp" />
 		<Unit filename="Map.h" />
 		<Unit filename="Properties.h" />
@@ -49,6 +52,9 @@
 		<Unit filename="Timer.h" />
 		<Unit filename="Transform.h" />
 		<Unit filename="Vector2D.h" />
+		<Unit filename="Watergirl.cpp" />
+		<Unit filename="Watergirl.h" />
+		<Unit filename="WatergirlDoor.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="texture.cpp" />
 		<Unit filename="texture.h" />

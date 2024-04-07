@@ -2,12 +2,7 @@
 #include <fstream>
 #include "texture.h"
 
-Map::Map(string src) {
-    ifstream fin(src);
-    int x,y;
-    while (fin >> x >> y) {
-        WallList.push_back({x , y});
-    }
+Map::Map(string Stage) {
     for (int i = 0 ; i < __SCREEN_WIDTH ; i++) {
         for (int j = 0 ; j < __SCREEN_HEIGHT ; j++) {
             Down[i][j] = -1;
@@ -16,17 +11,11 @@ Map::Map(string src) {
             Right[i][j] = -1;
         }
     }
-    for (pair <int,int> e : WallList) {
-        int x = e.first , y = e.second;
-        for (int i = x ; i < x + __OBJECT_SIZE ; i++) {
-            for (int j = y ; j < y + __OBJECT_SIZE ; j++) {
-                if (j > 0) Down[i][j - 1] = j;
-                if (j < __SCREEN_HEIGHT - 1) Up[i][j + 1] = j + 1;
-                if (i > 0) Right[i - 1][j] = i;
-                if (i < __SCREEN_WIDTH - 1) Left[i + 1][j] = i + 1;
-            }
-        }
-    }
+    InputBrick("maplevel/Stage" + Stage + "/brick.txt");
+    InputLava("maplevel/Stage" + Stage + "/lava.txt");
+    InputWater("maplevel/Stage" + Stage + "/water.txt");
+    InputGreenGoo("maplevel/Stage" + Stage + "/greengoo.txt");
+
     for (int i = 0 ; i < __SCREEN_WIDTH ; i++) {
         Up[i][0] = 0;
         Down[i][__SCREEN_HEIGHT - 1] = __SCREEN_HEIGHT;
@@ -57,7 +46,125 @@ bool Map::OnGround(const Vector2D& vect) {
 
 
 void Map::Draw() {
-    for (pair<int,int> e : WallList) {
-        Texture::GetInstance() -> Draw("wall" , e.first , e.second , __OBJECT_SIZE , __OBJECT_SIZE);
+    for (pair<int,int> e : BrickList) {
+        Texture::GetInstance() -> Draw("brick" , e.first , e.second , __OBJECT_SIZE , __OBJECT_SIZE);
+    }
+    for (pair<int,int> e : LavaList) {
+        Texture::GetInstance() -> DrawLiquid("lava" , e.first , e.second , __OBJECT_SIZE , __OBJECT_SIZE , (SDL_GetTicks() / LiquidAnimationSpeed) % numFrames);
+    }
+    for (pair<int,int> e : WaterList) {
+        Texture::GetInstance() -> DrawLiquid("water" , e.first , e.second , __OBJECT_SIZE , __OBJECT_SIZE , (SDL_GetTicks() / LiquidAnimationSpeed) % numFrames);
+    }
+    for (pair<int,int> e : GreenGooList) {
+        Texture::GetInstance() -> DrawLiquid("greengoo" , e.first , e.second , __OBJECT_SIZE , __OBJECT_SIZE , (SDL_GetTicks() / LiquidAnimationSpeed) % numFrames);
     }
 }
+
+bool Map::CollideWithLava(double x , double y , int width , int height) {
+    for (pair<int,int> e : LavaList) {
+        if (e.first > x + width || e.first + __OBJECT_SIZE < x) continue;
+        if (e.second + 1 > y + height || e.second + 16 < y) continue;
+        return true;
+    }
+    return false;
+}
+
+bool Map::CollideWithWater(double x , double y , int width , int height) {
+    for (pair<int,int> e : WaterList) {
+        if (e.first > x + width || e.first + __OBJECT_SIZE < x) continue;
+        if (e.second + 1 > y + height || e.second + 16 < y) continue;
+        return true;
+    }
+    return false;
+}
+
+bool Map::CollideWithGreenGoo(double x , double y , int width , int height) {
+    for (pair<int,int> e : GreenGooList) {
+        if (e.first > x + width || e.first + __OBJECT_SIZE < x) continue;
+        if (e.second + 1 > y + height || e.second + 16 < y) continue;
+        return true;
+    }
+    return false;
+}
+
+
+void Map::InputLava(string src) {
+    ifstream fin(src);
+    if (!fin) return;
+    int x,y;
+    while (fin >> x >> y) {
+        LavaList.push_back({x , y});
+    }
+    for (pair <int,int> e : LavaList) {
+        int x = e.first , y = e.second;
+        for (int i = x ; i < x + __OBJECT_SIZE ; i++) {
+            for (int j = y + 16; j < y + __OBJECT_SIZE ; j++) {
+                if (j > 0) Down[i][j - 1] = j;
+                if (j < __SCREEN_HEIGHT - 1) Up[i][j + 1] = j + 1;
+                if (i > 0) Right[i - 1][j] = i;
+                if (i < __SCREEN_WIDTH - 1) Left[i + 1][j] = i + 1;
+            }
+        }
+    }
+}
+
+void Map::InputWater(string src) {
+    ifstream fin(src);
+    if (!fin) return;
+    int x,y;
+    while (fin >> x >> y) {
+        WaterList.push_back({x , y});
+    }
+    for (pair <int,int> e : WaterList) {
+        int x = e.first , y = e.second;
+        for (int i = x ; i < x + __OBJECT_SIZE ; i++) {
+            for (int j = y + 16; j < y + __OBJECT_SIZE ; j++) {
+                if (j > 0) Down[i][j - 1] = j;
+                if (j < __SCREEN_HEIGHT - 1) Up[i][j + 1] = j + 1;
+                if (i > 0) Right[i - 1][j] = i;
+                if (i < __SCREEN_WIDTH - 1) Left[i + 1][j] = i + 1;
+            }
+        }
+    }
+}
+
+void Map::InputGreenGoo(string src) {
+    ifstream fin(src);
+    if (!fin) return;
+    int x,y;
+    while (fin >> x >> y) {
+        GreenGooList.push_back({x , y});
+    }
+    for (pair <int,int> e : GreenGooList) {
+        int x = e.first , y = e.second;
+        for (int i = x ; i < x + __OBJECT_SIZE ; i++) {
+            for (int j = y + 16; j < y + __OBJECT_SIZE ; j++) {
+                if (j > 0) Down[i][j - 1] = j;
+                if (j < __SCREEN_HEIGHT - 1) Up[i][j + 1] = j + 1;
+                if (i > 0) Right[i - 1][j] = i;
+                if (i < __SCREEN_WIDTH - 1) Left[i + 1][j] = i + 1;
+            }
+        }
+    }
+}
+
+void Map::InputBrick(string src) {
+    ifstream fin(src);
+    if (!fin) return;
+    int x,y;
+    while (fin >> x >> y) {
+        BrickList.push_back({x , y});
+    }
+    for (pair <int,int> e : BrickList) {
+        int x = e.first , y = e.second;
+        for (int i = x ; i < x + __OBJECT_SIZE ; i++) {
+            for (int j = y ; j < y + __OBJECT_SIZE ; j++) {
+                if (j > 0) Down[i][j - 1] = j;
+                if (j < __SCREEN_HEIGHT - 1) Up[i][j + 1] = j + 1;
+                if (i > 0) Right[i - 1][j] = i;
+                if (i < __SCREEN_WIDTH - 1) Left[i + 1][j] = i + 1;
+            }
+        }
+    }
+}
+

@@ -25,6 +25,8 @@ public:
 
     void Draw(std::string id , int x , int y , int width , int height , SDL_RendererFlip flip = SDL_FLIP_NONE);
     void DrawFrame(std::string id , int x , int y , int subX , int subY , int frame , SDL_RendererFlip flip = SDL_FLIP_NONE);
+    void DrawDoor(std::string id , int x , int y , int width , int height , int row , int frame);
+    void DrawLiquid(std::string id , int x , int y , int width , int height , int frame);
 };
 
 #endif // __TEXTURE__
