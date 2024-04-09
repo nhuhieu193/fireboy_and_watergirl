@@ -41,11 +41,14 @@ bool Engine::Init() {
     Texture::GetInstance() -> Load("greengoo" , "media/greengoo.png");
 
     Texture::GetInstance() -> Load("smoke" , "media/smoke.png");
+    Texture::GetInstance() -> Load("blueSlide" , "media/blueSlide.png");
+    Texture::GetInstance() -> Load("blueButton" , "media/blueButton.png");
+
     return true;
 }
 
 void Engine::Update() {
-    switch (GameStage) {
+    switch (GameStage + 0) {
         case 1: GameStage1::GetInstance() -> Update();break;
         case 2: GameStage2::GetInstance() -> Update();break;
     }
@@ -56,7 +59,7 @@ void Engine::Render() {
     SDL_SetRenderDrawColor(myRenderer , 0xFF , 0xFF , 0xFF , 0xFF);
     SDL_RenderClear(myRenderer);
 
-    switch (GameStage) {
+    switch (GameStage + 0) {
         case 0: BackgroundStage::GetInstance() -> Implement();break;
         case 1: GameStage1::GetInstance() -> Render();break;
         case 2: GameStage2::GetInstance() -> Render();break;
