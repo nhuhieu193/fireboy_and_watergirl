@@ -36,6 +36,7 @@
 		<Unit filename="greengoo.txt" />
 		<Unit filename="lava.txt" />
 		<Unit filename="main.cpp" />
+		<Unit filename="slide.txt" />
 		<Unit filename="water.txt" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

@@ -159,8 +159,8 @@ void Map::InputSlide(string src) {
     ifstream fin(src);
     if (!fin) return;
     string name;
-    Slide currentSlide;
     while (fin >> name) {
+        Slide currentSlide;
         currentSlide.SlideName = name;
         fin >> currentSlide.Direction;
         fin >> currentSlide.x >> currentSlide.y;

@@ -1,5 +1,5 @@
-#ifndef __GAMESTAGE1__
-#define __GAMESTAGE1__
+#ifndef __GAMESTAGE3__
+#define __GAMESTAGE3__
 
 #include "Engine.h"
 #include "Fireboy.h"
@@ -9,17 +9,17 @@
 
 #include "Menu.h"
 
-class GameStage1 {
-    static GameStage1* s_Instance;
+class GameStage3 {
+    static GameStage3* s_Instance;
     Fireboy* FireboyPlayer = NULL;
     Watergirl* WatergirlPlayer = NULL;
     FireboyDoor* fireboyDoor = NULL;
     WatergirlDoor* watergirlDoor = NULL;
 
-    const int FIREBOY_INITIAL_POSITION_X = 100;
-    const int FIREBOY_INITIAL_POSITION_Y = 400;
-    const int WATERGIRL_INITIAL_POSITION_X = 30;
-    const int WATERGIRL_INITIAL_POSITION_Y = 400;
+    const int FIREBOY_INITIAL_POSITION_X = 640;
+    const int FIREBOY_INITIAL_POSITION_Y = 500;
+    const int WATERGIRL_INITIAL_POSITION_X = 250;
+    const int WATERGIRL_INITIAL_POSITION_Y = 500;
 
     int StageOver = 0;
     int StageOverCountTicks = 0;
@@ -32,13 +32,14 @@ class GameStage1 {
     Menu* Option;
 
 public:
-    GameStage1();
-    static GameStage1* GetInstance() {
-        return s_Instance = (s_Instance != NULL ? s_Instance : new GameStage1());
+    GameStage3();
+    static GameStage3* GetInstance() {
+        return s_Instance = (s_Instance != NULL ? s_Instance : new GameStage3());
     }
 
     void Update();
     void Render();
 };
 
-#endif // __GAMESTAGE1__
+#endif // __GAMESTAGE2__
+

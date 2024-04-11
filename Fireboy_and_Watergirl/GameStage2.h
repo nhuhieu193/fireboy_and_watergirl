@@ -7,12 +7,19 @@
 #include "FireboyDoor.h"
 #include "WatergirlDoor.h"
 
+#include "Menu.h"
+
 class GameStage2 {
     static GameStage2* s_Instance;
     Fireboy* FireboyPlayer = NULL;
     Watergirl* WatergirlPlayer = NULL;
     FireboyDoor* fireboyDoor = NULL;
     WatergirlDoor* watergirlDoor = NULL;
+
+    const int FIREBOY_INITIAL_POSITION_X = 50;
+    const int FIREBOY_INITIAL_POSITION_Y = 350;
+    const int WATERGIRL_INITIAL_POSITION_X = 50;
+    const int WATERGIRL_INITIAL_POSITION_Y = 500;
 
     int StageOver = 0;
     int StageOverCountTicks = 0;
@@ -21,6 +28,8 @@ class GameStage2 {
     int CoordinateSmokeX , CoordinateSmokeY;
 
     void UpdateStageOver();
+
+    Menu* Option;
 
 public:
     GameStage2();
