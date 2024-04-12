@@ -3,8 +3,8 @@
 using namespace std;
 
 void get(int l , int r , int u , int v) {
-    for (int x = l ; x < r ; x += 30) {
-        for (int y = u ; y < v ; y += 30) {
+    for (int x = l * 10 ; x < r * 10 ; x += 30) {
+        for (int y = u * 10 ; y < v * 10 ; y += 30) {
             cout << x << " " << y << '\n';
         }
     }

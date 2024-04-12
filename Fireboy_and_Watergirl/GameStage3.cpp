@@ -30,6 +30,13 @@ void GameStage3::Update() {
     }
     UpdateStageOver();
     if (fireboyDoor -> GameCompleted() && watergirlDoor -> GameCompleted()) Option -> SetMask(2);
+    if (Option->MenuMask == 2) {
+        if (Option->MenuList[GAME_LEVELPASSED].IsClicked(Option->MenuList[GAME_LEVELPASSED].NextLevel)) {
+            Engine::GetInstance() -> GameStage++;
+            Option->MenuMask = 0;
+        }
+        return;
+    }
     if (StageOver) {
         if (StageOverCountTicks == SmokeFrames * SmokeAnimationSpeed) {
             Option -> SetMask(3);
@@ -45,19 +52,12 @@ void GameStage3::Update() {
         }
         return;
     }
-    if (Option->MenuMask == 2) {
-        if (Option->MenuList[GAME_LEVELPASSED].IsClicked(Option->MenuList[GAME_LEVELPASSED].NextLevel)) {
-            Engine::GetInstance() -> GameStage++;
-            Option->MenuMask = 0;
-        }
-        return;
-    }
+
     if (StageOver) return;
     FireboyPlayer -> Update(1.0 / FPS , EventHandler::GetInstance() -> Left() , EventHandler::GetInstance() -> Up() , EventHandler::GetInstance() -> Right());
     WatergirlPlayer -> Update(1.0 / FPS , EventHandler::GetInstance() -> KeyA() , EventHandler::GetInstance() -> KeyW() , EventHandler::GetInstance() -> KeyD());
     fireboyDoor -> Update(FireboyPlayer -> m_Transform -> X , FireboyPlayer -> m_Transform -> Y , CHARACTER_WIDTH , CHARACTER_HEIGHT);
     watergirlDoor -> Update(WatergirlPlayer -> m_Transform -> X , WatergirlPlayer -> m_Transform -> Y , CHARACTER_WIDTH , CHARACTER_HEIGHT);
-
     Engine::GetInstance() -> CurrentMap -> Update(FireboyPlayer -> m_Transform -> X , FireboyPlayer -> m_Transform -> Y , WatergirlPlayer -> m_Transform -> X , WatergirlPlayer -> m_Transform -> Y);
 }
 

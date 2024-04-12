@@ -1,19 +1,19 @@
-#include "GameStage2.h"
+#include "GameStage4.h"
 
-GameStage2* GameStage2::s_Instance = NULL;
+GameStage4* GameStage4::s_Instance = NULL;
 
-GameStage2::GameStage2() {
-    Engine::GetInstance() -> CurrentMap = new Map("2");
+GameStage4::GameStage4() {
+    Engine::GetInstance() -> CurrentMap = new Map("4");
     FireboyPlayer = new Fireboy(new Properties("fireboy_idle" , FIREBOY_INITIAL_POSITION_X , FIREBOY_INITIAL_POSITION_Y , CHARACTER_WIDTH , CHARACTER_HEIGHT));
     WatergirlPlayer = new Watergirl(new Properties("watergirl_idle" , WATERGIRL_INITIAL_POSITION_X , WATERGIRL_INITIAL_POSITION_Y , CHARACTER_WIDTH , CHARACTER_HEIGHT));
 
-    fireboyDoor = new FireboyDoor(800 , 40);
-    watergirlDoor = new WatergirlDoor(700 , 40);
+    fireboyDoor = new FireboyDoor(FIREBOY_DOOR_POSITION_X , FIREBOY_DOOR_POSITION_Y);
+    watergirlDoor = new WatergirlDoor(WATERGIRL_DOOR_POSITION_X , WATERGIRL_DOOR_POSITION_Y);
 
     Option = Menu::GetInstance();
 }
 
-void GameStage2::Update() {
+void GameStage4::Update() {
     if (Option->MenuMask == 0 && Option ->IsMenuScreenCompletelyShown() && Option ->PauseButtonIsClicked()) Option->SetMask(1);
     Option->UpdateShowingMenu();
     if (Option->MenuMask == 1) {
@@ -61,10 +61,9 @@ void GameStage2::Update() {
     Engine::GetInstance() -> CurrentMap -> Update(FireboyPlayer -> m_Transform -> X , FireboyPlayer -> m_Transform -> Y , WatergirlPlayer -> m_Transform -> X , WatergirlPlayer -> m_Transform -> Y);
 }
 
-void GameStage2::Render() {
+void GameStage4::Render() {
     Texture::GetInstance() -> Draw("background" , 0 , 0 , SCREEN_WIDTH , SCREEN_HEIGHT);
-    fireboyDoor -> Render();
-    watergirlDoor -> Render();
+    fireboyDoor -> Render(); watergirlDoor -> Render();
     if (StageOver) Texture::GetInstance() -> DrawSmoke(CoordinateSmokeX , CoordinateSmokeY , StageOverCountTicks / SmokeAnimationSpeed);
     if (StageOver != 2) FireboyPlayer -> Draw(EventHandler::GetInstance() -> Left() , EventHandler::GetInstance() -> Right());
     if (StageOver != 1) WatergirlPlayer -> Draw(EventHandler::GetInstance() -> KeyA() , EventHandler::GetInstance() -> KeyD());
@@ -72,7 +71,7 @@ void GameStage2::Render() {
     Menu::GetInstance() -> Draw();
 }
 
-void GameStage2::UpdateStageOver() {
+void GameStage4::UpdateStageOver() {
     if (Engine::GetInstance() -> CurrentMap -> CollideWithLava(WatergirlPlayer -> m_Transform -> X , WatergirlPlayer -> m_Transform -> Y , CHARACTER_WIDTH , CHARACTER_HEIGHT)) {
         StageOver = 1;
         CoordinateSmokeX = WatergirlPlayer -> m_Transform -> X;

@@ -9,6 +9,8 @@
 #include "GameStage1.h"
 #include "GameStage2.h"
 #include "GameStage3.h"
+#include "GameStage4.h"
+#include "GameStage5.h"
 
 Engine* Engine::s_Instance = NULL;
 
@@ -66,10 +68,12 @@ bool Engine::Init() {
 }
 
 void Engine::Update() {
-    switch (GameStage + 1) {
+    switch (GameStage + 0) {
         case 1: GameStage1::GetInstance() -> Update();break;
         case 2: GameStage2::GetInstance() -> Update();break;
         case 3: GameStage3::GetInstance() -> Update();break;
+        case 4: GameStage4::GetInstance() -> Update();break;
+        case 5: GameStage5::GetInstance() -> Update();break;
     }
 }
 
@@ -78,11 +82,13 @@ void Engine::Render() {
     SDL_SetRenderDrawColor(myRenderer , 0xFF , 0xFF , 0xFF , 0xFF);
     SDL_RenderClear(myRenderer);
 
-    switch (GameStage + 1) {
+    switch (GameStage + 0) {
         case 0: BackgroundStage::GetInstance() -> Implement();break;
         case 1: GameStage1::GetInstance() -> Render();break;
         case 2: GameStage2::GetInstance() -> Render();break;
         case 3: GameStage3::GetInstance() -> Render();break;
+        case 4: GameStage4::GetInstance() -> Render();break;
+        case 5: GameStage5::GetInstance() -> Render();break;
     }
     SDL_RenderPresent(myRenderer);
 }
