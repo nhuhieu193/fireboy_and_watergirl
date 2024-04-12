@@ -24,9 +24,12 @@ void GameStage1::Update() {
             FireboyPlayer -> m_Transform -> X = FIREBOY_INITIAL_POSITION_X; FireboyPlayer -> m_Transform -> Y = FIREBOY_INITIAL_POSITION_Y;
             WatergirlPlayer -> m_Transform -> X = WATERGIRL_INITIAL_POSITION_X; WatergirlPlayer -> m_Transform -> Y = WATERGIRL_INITIAL_POSITION_Y;
             Option->MenuMask = 0;
+            StageOverCountTicks = 0;
             return;
         }else return;
     }
+    UpdateStageOver();
+    if (fireboyDoor -> GameCompleted() && watergirlDoor -> GameCompleted()) Option -> SetMask(2);
     if (StageOver) {
         if (StageOverCountTicks == SmokeFrames * SmokeAnimationSpeed) {
             Option -> SetMask(3);
@@ -38,6 +41,7 @@ void GameStage1::Update() {
             FireboyPlayer -> m_Transform -> X = 640; FireboyPlayer -> m_Transform -> Y = 500;
             WatergirlPlayer -> m_Transform -> X = 250; WatergirlPlayer -> m_Transform -> Y = 500;
             Option->MenuMask = 0;
+            StageOverCountTicks = 0;
         }
         return;
     }
@@ -48,14 +52,11 @@ void GameStage1::Update() {
         }
         return;
     }
-
+    if (StageOver) return;
     FireboyPlayer -> Update(1.0 / FPS , EventHandler::GetInstance() -> Left() , EventHandler::GetInstance() -> Up() , EventHandler::GetInstance() -> Right());
     WatergirlPlayer -> Update(1.0 / FPS , EventHandler::GetInstance() -> KeyA() , EventHandler::GetInstance() -> KeyW() , EventHandler::GetInstance() -> KeyD());
     fireboyDoor -> Update(FireboyPlayer -> m_Transform -> X , FireboyPlayer -> m_Transform -> Y , CHARACTER_WIDTH , CHARACTER_HEIGHT);
     watergirlDoor -> Update(WatergirlPlayer -> m_Transform -> X , WatergirlPlayer -> m_Transform -> Y , CHARACTER_WIDTH , CHARACTER_HEIGHT);
-
-    UpdateStageOver();
-    if (fireboyDoor -> GameCompleted() && watergirlDoor -> GameCompleted()) Option -> SetMask(2);
 }
 
 void GameStage1::Render() {
