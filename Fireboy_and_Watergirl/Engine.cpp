@@ -20,8 +20,11 @@ void Engine::Events() {
 
 bool Engine::Init() {
     m_isRunning = true;
-    SDL_Init(SDL_INIT_VIDEO);
+    SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO);
     IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG);
+    Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
+    Mix_Music* music = Mix_LoadMUS("audio/pianotheme.mp3");
+    Mix_PlayMusic(music , -1);
 
     myWindow = SDL_CreateWindow("Fireboy and watergirl" , SDL_WINDOWPOS_UNDEFINED , SDL_WINDOWPOS_UNDEFINED , SCREEN_WIDTH , SCREEN_HEIGHT , SDL_WINDOW_SHOWN);
     myRenderer = SDL_CreateRenderer(myWindow , -1 , SDL_RENDERER_ACCELERATED);
@@ -64,6 +67,8 @@ bool Engine::Init() {
     Texture::GetInstance() -> Load("LevelPassed" , "media/LevelPassed.png");
     Texture::GetInstance() -> Load("LevelPassedNextLevel" , "media/LevelPassedNextLevel.png");
 
+    Texture::GetInstance() -> Load("youwin" , "media/youwin.png");
+
     return true;
 }
 
@@ -89,6 +94,7 @@ void Engine::Render() {
         case 3: GameStage3::GetInstance() -> Render();break;
         case 4: GameStage4::GetInstance() -> Render();break;
         case 5: GameStage5::GetInstance() -> Render();break;
+        case 6: Texture::GetInstance() -> Draw("youwin" , 0 , 70 , 900 , 453);
     }
     SDL_RenderPresent(myRenderer);
 }
@@ -103,4 +109,5 @@ void Engine::Clean() {
     SDL_DestroyRenderer(myRenderer);
     IMG_Quit();
     SDL_Quit();
+    Mix_Quit();
 }

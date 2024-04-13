@@ -46,6 +46,10 @@
 		<Unit filename="GameStage2.h" />
 		<Unit filename="GameStage3.cpp" />
 		<Unit filename="GameStage3.h" />
+		<Unit filename="GameStage4.cpp" />
+		<Unit filename="GameStage4.h" />
+		<Unit filename="GameStage5.cpp" />
+		<Unit filename="GameStage5.h" />
 		<Unit filename="Map.cpp" />
 		<Unit filename="Map.h" />
 		<Unit filename="Menu.cpp" />
