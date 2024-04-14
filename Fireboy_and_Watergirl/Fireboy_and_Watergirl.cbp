@@ -54,6 +54,8 @@
 		<Unit filename="Map.h" />
 		<Unit filename="Menu.cpp" />
 		<Unit filename="Menu.h" />
+		<Unit filename="Music.cpp" />
+		<Unit filename="Music.h" />
 		<Unit filename="Properties.h" />
 		<Unit filename="RigidBody.h" />
 		<Unit filename="Timer.cpp" />

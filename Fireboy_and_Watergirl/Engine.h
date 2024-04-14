@@ -15,7 +15,7 @@ const int OBJECT_SIZE = 30;
 const int CHARACTER_WIDTH = 40;
 const int CHARACTER_HEIGHT = 61;
 
-
+#include "Music.h"
 #include "Map.h"
 
 class Engine {

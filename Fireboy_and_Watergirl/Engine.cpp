@@ -23,8 +23,14 @@ bool Engine::Init() {
     SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO);
     IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG);
     Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
-    Mix_Music* music = Mix_LoadMUS("audio/pianotheme.mp3");
-    Mix_PlayMusic(music , -1);
+    Music::GetInstance() -> LoadMUS("BackgroundMusic" , "audio/pianotheme.mp3");
+    Music::GetInstance() -> LoadMUS("fireboyandwatergirl" , "audio/fireboyandwatergirl_soundstrack.mp3");
+    Music::GetInstance() -> LoadCHU("click" , "audio/click.mp3");
+    Music::GetInstance() -> LoadCHU("rclick" , "audio/rclick.mp3");
+    Music::GetInstance() -> LoadCHU("lclick" , "audio/lclick.mp3");
+    Music::GetInstance() -> LoadCHU("dclick" , "audio/dclick.mp3");
+
+    Music::GetInstance() -> PlayMusic("BackgroundMusic");
 
     myWindow = SDL_CreateWindow("Fireboy and watergirl" , SDL_WINDOWPOS_UNDEFINED , SDL_WINDOWPOS_UNDEFINED , SCREEN_WIDTH , SCREEN_HEIGHT , SDL_WINDOW_SHOWN);
     myRenderer = SDL_CreateRenderer(myWindow , -1 , SDL_RENDERER_ACCELERATED);
@@ -105,6 +111,7 @@ void Engine::Quit() {
 
 void Engine::Clean() {
     Texture::GetInstance() -> Clean();
+    Music::GetInstance() -> Clean();
     SDL_DestroyWindow(myWindow);
     SDL_DestroyRenderer(myRenderer);
     IMG_Quit();

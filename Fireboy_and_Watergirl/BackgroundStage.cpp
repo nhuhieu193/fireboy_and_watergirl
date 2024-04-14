@@ -17,6 +17,7 @@ void BackgroundStage::Implement() {
         Texture::GetInstance() -> Draw("PlayTouched" , 0 , 0 , SCREEN_WIDTH , SCREEN_HEIGHT);
     }
     if (PlayClicked()) {
+        Music::GetInstance() -> PlayChunk("dclick");
         Engine::GetInstance() -> GameStage++;
     }
 }

@@ -3,6 +3,7 @@
 GameStage1* GameStage1::s_Instance = NULL;
 
 GameStage1::GameStage1() {
+    Music::GetInstance() -> PlayMusic("fireboyandwatergirl");
     Engine::GetInstance() -> CurrentMap = new Map("1");
     FireboyPlayer = new Fireboy(new Properties("fireboy_idle" , FIREBOY_INITIAL_POSITION_X , FIREBOY_INITIAL_POSITION_Y , CHARACTER_WIDTH , CHARACTER_HEIGHT));
     WatergirlPlayer = new Watergirl(new Properties("watergirl_idle" , WATERGIRL_INITIAL_POSITION_X , WATERGIRL_INITIAL_POSITION_Y , CHARACTER_WIDTH , CHARACTER_HEIGHT));
