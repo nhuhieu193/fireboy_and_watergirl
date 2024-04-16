@@ -33,6 +33,7 @@ class GameStage4 {
     int CoordinateSmokeX , CoordinateSmokeY;
 
     void UpdateStageOver();
+    bool HandleMenu();
 
     Menu* Option;
 

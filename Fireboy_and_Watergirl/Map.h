@@ -83,6 +83,7 @@ public:
     void InputSlide(string src);
 
     Map(string src);
+    ~Map(){}
     void Draw();
     void Update(double X , double Y , double U , double V);
     bool OnGround(const Vector2D& vect);
@@ -90,6 +91,7 @@ public:
     bool CollideWithLava(double x , double y , int width , int height);
     bool CollideWithWater(double x , double y , int width , int height);
     bool CollideWithGreenGoo(double x , double y , int width , int height);
+
 };
 
 #endif // __MAP__

@@ -21,6 +21,11 @@ class GameStage3 {
     const int WATERGIRL_INITIAL_POSITION_X = 250;
     const int WATERGIRL_INITIAL_POSITION_Y = 500;
 
+    const int FIREBOY_DOOR_POSITION_X = 120;
+    const int FIREBOY_DOOR_POSITION_Y = 400;
+    const int WATERGIRL_DOOR_POSITION_X = 725;
+    const int WATERGIRL_DOOR_POSITION_Y = 400;
+
     int StageOver = 0;
     int StageOverCountTicks = 0;
     int SmokeFrames = 12;
@@ -28,6 +33,7 @@ class GameStage3 {
     int CoordinateSmokeX , CoordinateSmokeY;
 
     void UpdateStageOver();
+    bool HandleMenu();
 
     Menu* Option;
 

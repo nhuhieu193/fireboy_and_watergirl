@@ -26,10 +26,11 @@ bool Engine::Init() {
     Music::GetInstance() -> LoadMUS("BackgroundMusic" , "audio/pianotheme.mp3");
     Music::GetInstance() -> LoadMUS("fireboyandwatergirl" , "audio/fireboyandwatergirl_soundstrack.mp3");
     Music::GetInstance() -> LoadCHU("click" , "audio/click.mp3");
-    Music::GetInstance() -> LoadCHU("rclick" , "audio/rclick.mp3");
-    Music::GetInstance() -> LoadCHU("lclick" , "audio/lclick.mp3");
-    Music::GetInstance() -> LoadCHU("dclick" , "audio/dclick.mp3");
+    Music::GetInstance() -> LoadCHU("dead" , "audio/dead.mp3");
+    Music::GetInstance() -> LoadCHU("jump" , "audio/jump.mp3");
+    Music::GetInstance() -> LoadCHU("levelpassed" , "audio/levelpassed.mp3");
 
+    Mix_VolumeMusic(MIX_MAX_VOLUME / 2);
     Music::GetInstance() -> PlayMusic("BackgroundMusic");
 
     myWindow = SDL_CreateWindow("Fireboy and watergirl" , SDL_WINDOWPOS_UNDEFINED , SDL_WINDOWPOS_UNDEFINED , SCREEN_WIDTH , SCREEN_HEIGHT , SDL_WINDOW_SHOWN);
@@ -100,7 +101,9 @@ void Engine::Render() {
         case 3: GameStage3::GetInstance() -> Render();break;
         case 4: GameStage4::GetInstance() -> Render();break;
         case 5: GameStage5::GetInstance() -> Render();break;
-        case 6: Texture::GetInstance() -> Draw("youwin" , 0 , 70 , 900 , 453);
+        case 6:
+            Texture::GetInstance() -> Draw("background" , 0 , 0 , SCREEN_WIDTH , SCREEN_HEIGHT);
+            Texture::GetInstance() -> Draw("youwin" , 0 , 70 , 900 , 453);
     }
     SDL_RenderPresent(myRenderer);
 }
