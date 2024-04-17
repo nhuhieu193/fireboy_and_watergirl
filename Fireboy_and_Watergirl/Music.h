@@ -6,7 +6,7 @@
 #include <SDL_mixer.h>
 #include "texture.h"
 
-const int FramesClickDelay = 16;
+const int FramesClickDelay = 15;
 
 class Music {
     static Music* s_Instance;
