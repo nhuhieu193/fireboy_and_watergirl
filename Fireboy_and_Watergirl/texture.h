@@ -21,6 +21,7 @@ public:
     }
 
     bool Load(std::string id , std::string filename);
+    bool LoadText(std::string text ,int textSize, std::string font , SDL_Color);
     void Clean();
 
     void Draw(std::string id , int x , int y , int width , int height , SDL_RendererFlip flip = SDL_FLIP_NONE);
@@ -28,6 +29,7 @@ public:
     void DrawDoor(std::string id , int x , int y , int width , int height , int row , int frame);
     void DrawLiquid(std::string id , int x , int y , int width , int height , int frame);
     void DrawSmoke(int x , int y , int frame);
+    void DrawText(std::string id , int x , int y);
 };
 
 #endif // __TEXTURE__

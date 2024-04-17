@@ -1,5 +1,6 @@
 #include "BackgroundStage.h"
 #include "texture.h"
+#include "Music.h"
 
 BackgroundStage* BackgroundStage::s_Instance = NULL;
 
@@ -11,6 +12,10 @@ BackgroundStage::BackgroundStage() {
     Play -> h = 82;
 }
 
+void BackgroundStage::Update() {
+    Music::GetInstance() -> Update();
+}
+
 void BackgroundStage::Implement() {
     Texture::GetInstance() -> Draw("IntroBackground" , 0 , 0 , SCREEN_WIDTH , SCREEN_HEIGHT);
     if (PlayTouched()) {
@@ -20,6 +25,7 @@ void BackgroundStage::Implement() {
         Music::GetInstance() -> PlayChunk("click");
         Engine::GetInstance() -> GameStage++;
     }
+    Music::GetInstance() -> Draw();
 }
 
 bool BackgroundStage::PlayTouched() {

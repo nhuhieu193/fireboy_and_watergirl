@@ -14,6 +14,7 @@ public:
     static BackgroundStage* GetInstance() {
         return s_Instance = (s_Instance != NULL ? s_Instance : new BackgroundStage());
     }
+    void Update();
     void Implement();
     bool PlayClicked();
     bool PlayTouched();

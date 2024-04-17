@@ -11,6 +11,15 @@ bool Texture::Load(std::string id , std::string filename) {
     return true;
 }
 
+bool Texture::LoadText(std::string text , int textSize , std::string Textfont , SDL_Color TextColor) {
+    TTF_Font* font = TTF_OpenFont(Textfont.c_str(), textSize);
+    SDL_Surface* textSurface = TTF_RenderText_Blended(font, text.c_str(), TextColor);
+    SDL_Texture* textTexture = SDL_CreateTextureFromSurface(Engine::GetInstance() -> GetRenderer(), textSurface);
+    SDL_FreeSurface(textSurface);
+    m_TextureMap[text] = textTexture;
+    return true;
+}
+
 void Texture::Draw(std::string id , int x , int y , int width , int height , SDL_RendererFlip flip) {
     SDL_Rect srcRect = {0 , 0 , width , height};
     SDL_Rect dstRect = {x , y , width , height};
@@ -37,6 +46,13 @@ void Texture::DrawLiquid(std::string id , int x , int y , int width , int height
 
 void Texture::DrawSmoke(int x , int y , int frame) {
     DrawFrame("smoke" , x , y , 30 , 29 , frame , SDL_FLIP_NONE);
+}
+
+void Texture::DrawText(std::string id , int x , int y) {
+    int width, height;
+    SDL_QueryTexture(m_TextureMap[id] , NULL , NULL , &width , &height);
+    SDL_Rect dstRect = {x , y , width , height};
+    SDL_RenderCopyEx(Engine::GetInstance() -> GetRenderer() , m_TextureMap[id] , NULL , &dstRect , 0 , NULL , SDL_FLIP_NONE);
 }
 
 void Texture::Clean() {

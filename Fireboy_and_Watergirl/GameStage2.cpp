@@ -13,6 +13,7 @@ GameStage2::GameStage2() {
 }
 
 void GameStage2::Update() {
+    Music::GetInstance() -> Update();
     if (HandleMenu()) return;
     if (StageOver) return;
     FireboyPlayer -> Update(1.0 / FPS , EventHandler::GetInstance() -> Left() , EventHandler::GetInstance() -> Up() , EventHandler::GetInstance() -> Right());
@@ -24,12 +25,16 @@ void GameStage2::Update() {
 
 void GameStage2::Render() {
     Texture::GetInstance() -> Draw("background" , 0 , 0 , SCREEN_WIDTH , SCREEN_HEIGHT);
+    Texture::GetInstance() -> DrawText("Never mix fire and water !!!" , 430 , 450);
+    Texture::GetInstance() -> DrawText("Green goo hurts them both" , 480 , 250);
+    Texture::GetInstance() -> DrawText("LEVEL 2" , 360 , 0);
     fireboyDoor -> Render();
     watergirlDoor -> Render();
     if (StageOver) Texture::GetInstance() -> DrawSmoke(CoordinateSmokeX , CoordinateSmokeY , StageOverCountTicks / SmokeAnimationSpeed);
     if (StageOver != 2) FireboyPlayer -> Draw(EventHandler::GetInstance() -> Left() , EventHandler::GetInstance() -> Right());
     if (StageOver != 1) WatergirlPlayer -> Draw(EventHandler::GetInstance() -> KeyA() , EventHandler::GetInstance() -> KeyD());
     Engine::GetInstance() -> CurrentMap -> Draw();
+    Music::GetInstance() -> Draw();
     Menu::GetInstance() -> Draw();
 }
 

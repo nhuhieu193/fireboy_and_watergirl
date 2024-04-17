@@ -4,11 +4,18 @@
 #include <map>
 #include <string>
 #include <SDL_mixer.h>
+#include "texture.h"
+
+const int FramesClickDelay = 16;
 
 class Music {
     static Music* s_Instance;
     std::map <std::string , Mix_Music*> m_MusicMap;
     std::map <std::string , Mix_Chunk*> m_ChunkMap;
+
+    bool SpeakerIsOn = true, SoundIsOn = true;
+    int LastFrameClickSpeaker = -10, LastFrameClickSound = -10;
+    int countFrame = 0;
 
 public:
     static Music* GetInstance() {
@@ -20,6 +27,8 @@ public:
     void PlayMusic(std::string id);
     void PlayChunk(std::string id);
 
+    void Update();
+    void Draw();
 };
 
 #endif // __MUSIC__

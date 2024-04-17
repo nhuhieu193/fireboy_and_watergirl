@@ -14,6 +14,7 @@ GameStage5::GameStage5() {
 }
 
 void GameStage5::Update() {
+    Music::GetInstance() -> Update();
     if (HandleMenu()) return;
     if (StageOver) return;
     FireboyPlayer -> Update(1.0 / FPS , EventHandler::GetInstance() -> Left() , EventHandler::GetInstance() -> Up() , EventHandler::GetInstance() -> Right());
@@ -25,11 +26,13 @@ void GameStage5::Update() {
 
 void GameStage5::Render() {
     Texture::GetInstance() -> Draw("background" , 0 , 0 , SCREEN_WIDTH , SCREEN_HEIGHT);
+    Texture::GetInstance() -> DrawText("LEVEL 5" , 360 , 0);
     fireboyDoor -> Render(); watergirlDoor -> Render();
     if (StageOver) Texture::GetInstance() -> DrawSmoke(CoordinateSmokeX , CoordinateSmokeY , StageOverCountTicks / SmokeAnimationSpeed);
     if (StageOver != 2) FireboyPlayer -> Draw(EventHandler::GetInstance() -> Left() , EventHandler::GetInstance() -> Right());
     if (StageOver != 1) WatergirlPlayer -> Draw(EventHandler::GetInstance() -> KeyA() , EventHandler::GetInstance() -> KeyD());
     Engine::GetInstance() -> CurrentMap -> Draw();
+    Music::GetInstance() -> Draw();
     Menu::GetInstance() -> Draw();
 }
 

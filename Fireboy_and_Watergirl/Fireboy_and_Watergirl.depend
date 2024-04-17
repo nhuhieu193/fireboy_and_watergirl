@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1713150404 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\engine.cpp
+1713366023 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\engine.cpp
 	"Engine.h"
 	"texture.h"
 	"Vector2D.h"
@@ -12,11 +12,12 @@
 	"GameStage4.h"
 	"GameStage5.h"
 
-1713084456 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\engine.h
+1713345155 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\engine.h
 	<iostream>
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_mixer.h>
+	<SDL_ttf.h>
 	"EventHandler.h"
 	"Timer.h"
 	"Music.h"
@@ -27,14 +28,14 @@
 	<SDL_image.h>
 	"Engine.h"
 
-1712513935 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\texture.h
+1713363320 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\texture.h
 	<SDL.h>
 	<SDL_image.h>
 	<string>
 	<map>
 	"Engine.h"
 
-1712513935 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\texture.cpp
+1713363320 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\texture.cpp
 	"texture.h"
 	"Engine.h"
 
@@ -104,11 +105,12 @@
 	"texture.h"
 	<algorithm>
 
-1713088715 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\backgroundstage.cpp
+1713326473 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\backgroundstage.cpp
 	"BackgroundStage.h"
 	"texture.h"
+	"Music.h"
 
-1711877931 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\backgroundstage.h
+1713326455 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\backgroundstage.h
 	"Engine.h"
 
 1713103547 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\gamestage1.h
@@ -119,7 +121,7 @@
 	"WatergirlDoor.h"
 	"Menu.h"
 
-1713150469 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\gamestage1.cpp
+1713365044 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\gamestage1.cpp
 	"GameStage1.h"
 
 1712081118 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\watergirl.h
@@ -136,7 +138,7 @@
 1712418128 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\watergirldoor.h
 	"texture.h"
 
-1713150568 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\gamestage2.cpp
+1713365136 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\gamestage2.cpp
 	"GameStage2.h"
 
 1713103594 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\gamestage2.h
@@ -154,7 +156,7 @@
 1712482558 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\gameover.h
 	"Engine.h"
 
-1713150568 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\gamestage3.cpp
+1713365137 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\gamestage3.cpp
 	"GameStage3.h"
 
 1713103976 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\gamestage3.h
@@ -172,7 +174,7 @@
 1712797920 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\menu.cpp
 	"Menu.h"
 
-1713150568 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\gamestage4.cpp
+1713365137 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\gamestage4.cpp
 	"GameStage4.h"
 
 1713103231 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\gamestage4.h
@@ -194,7 +196,7 @@
 1712945794 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\gamestage.cpp
 	"GameStage.h"
 
-1713150567 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\gamestage5.cpp
+1713365136 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\gamestage5.cpp
 	"GameStage5.h"
 
 1713103234 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\gamestage5.h
@@ -205,11 +207,12 @@
 	"WatergirlDoor.h"
 	"Menu.h"
 
-1713084788 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\music.h
+1713365298 c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\music.h
 	<map>
 	<string>
 	<SDL_mixer.h>
+	"texture.h"
 
-1713085193 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\music.cpp
+1713329851 source:c:\users\computer\onedrive\documents\fireboy_and_watergirl\fireboy_and_watergirl\music.cpp
 	"Music.h"
 

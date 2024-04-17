@@ -22,6 +22,7 @@ bool Engine::Init() {
     m_isRunning = true;
     SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO);
     IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG);
+    TTF_Init();
     Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
     Music::GetInstance() -> LoadMUS("BackgroundMusic" , "audio/pianotheme.mp3");
     Music::GetInstance() -> LoadMUS("fireboyandwatergirl" , "audio/fireboyandwatergirl_soundstrack.mp3");
@@ -76,11 +77,31 @@ bool Engine::Init() {
 
     Texture::GetInstance() -> Load("youwin" , "media/youwin.png");
 
+    Texture::GetInstance() -> Load("speaker_on" , "media/speaker_on.png");
+    Texture::GetInstance() -> Load("speaker_off" , "media/speaker_off.png");
+    Texture::GetInstance() -> Load("sound_on" , "media/sound_on.png");
+    Texture::GetInstance() -> Load("sound_off" , "media/sound_off.png");
+
+    Texture::GetInstance() -> LoadText("Use arrow keys to move fireboy" , 30 , "fonts/IntroFont.ttf" , {184 , 199 , 36 , 181});
+    Texture::GetInstance() -> LoadText("Use A,W,D to move watergirl" , 30 , "fonts/IntroFont.ttf" , {184 , 199 , 36 , 181});
+    Texture::GetInstance() -> LoadText("Never mix fire and water !!!" , 30 , "fonts/IntroFont.ttf" , {184 , 199 , 36 , 181});
+    Texture::GetInstance() -> LoadText("Green goo hurts them both" , 30 , "fonts/IntroFont.ttf" , {184 , 199 , 36 , 181});
+    Texture::GetInstance() -> LoadText("Use buttons" , 30 , "fonts/IntroFont.ttf" , {184 , 199 , 36 , 181});
+    Texture::GetInstance() -> LoadText("To control slides" , 30 , "fonts/IntroFont.ttf" , {184 , 199 , 36 , 181});
+    Texture::GetInstance() -> LoadText("And combine" , 30 , "fonts/IntroFont.ttf" , {184 , 199 , 36 , 181});
+    Texture::GetInstance() -> LoadText("To pass through" , 30 , "fonts/IntroFont.ttf" , {184 , 199 , 36 , 181});
+    Texture::GetInstance() -> LoadText("LEVEL 1" , 35 , "fonts/LevelFont.ttf" , {45 , 251 , 0 , 209});
+    Texture::GetInstance() -> LoadText("LEVEL 2" , 35 , "fonts/LevelFont.ttf" , {45 , 251 , 0 , 209});
+    Texture::GetInstance() -> LoadText("LEVEL 3" , 35 , "fonts/LevelFont.ttf" , {45 , 251 , 0 , 209});
+    Texture::GetInstance() -> LoadText("LEVEL 4" , 35 , "fonts/LevelFont.ttf" , {45 , 251 , 0 , 209});
+    Texture::GetInstance() -> LoadText("LEVEL 5" , 35 , "fonts/LevelFont.ttf" , {45 , 251 , 0 , 209});
+
     return true;
 }
 
 void Engine::Update() {
     switch (GameStage + 0) {
+        case 0: BackgroundStage::GetInstance() -> Update();break;
         case 1: GameStage1::GetInstance() -> Update();break;
         case 2: GameStage2::GetInstance() -> Update();break;
         case 3: GameStage3::GetInstance() -> Update();break;
@@ -120,4 +141,5 @@ void Engine::Clean() {
     IMG_Quit();
     SDL_Quit();
     Mix_Quit();
+    TTF_Quit();
 }

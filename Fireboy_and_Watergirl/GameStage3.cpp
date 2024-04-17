@@ -13,6 +13,7 @@ GameStage3::GameStage3() {
 }
 
 void GameStage3::Update() {
+    Music::GetInstance() -> Update();
     if (HandleMenu()) return;
     if (StageOver) return;
     FireboyPlayer -> Update(1.0 / FPS , EventHandler::GetInstance() -> Left() , EventHandler::GetInstance() -> Up() , EventHandler::GetInstance() -> Right());
@@ -24,11 +25,17 @@ void GameStage3::Update() {
 
 void GameStage3::Render() {
     Texture::GetInstance() -> Draw("background" , 0 , 0 , SCREEN_WIDTH , SCREEN_HEIGHT);
+    Texture::GetInstance() -> DrawText("Use buttons" , 10 , 250);
+    Texture::GetInstance() -> DrawText("To control slides" , 30 , 280);
+    Texture::GetInstance() -> DrawText("And combine" , 730 , 250);
+    Texture::GetInstance() -> DrawText("To pass through" , 735 , 280);
+    Texture::GetInstance() -> DrawText("LEVEL 3" , 360 , 0);
     fireboyDoor -> Render(); watergirlDoor -> Render();
     if (StageOver) Texture::GetInstance() -> DrawSmoke(CoordinateSmokeX , CoordinateSmokeY , StageOverCountTicks / SmokeAnimationSpeed);
     if (StageOver != 2) FireboyPlayer -> Draw(EventHandler::GetInstance() -> Left() , EventHandler::GetInstance() -> Right());
     if (StageOver != 1) WatergirlPlayer -> Draw(EventHandler::GetInstance() -> KeyA() , EventHandler::GetInstance() -> KeyD());
     Engine::GetInstance() -> CurrentMap -> Draw();
+    Music::GetInstance() -> Draw();
     Menu::GetInstance() -> Draw();
 }
 

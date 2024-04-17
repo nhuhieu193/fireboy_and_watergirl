@@ -16,6 +16,7 @@ GameStage1::GameStage1() {
 }
 
 void GameStage1::Update() {
+    Music::GetInstance() -> Update();
     if (HandleMenu()) return;
     if (StageOver) return;
     FireboyPlayer -> Update(1.0 / FPS , EventHandler::GetInstance() -> Left() , EventHandler::GetInstance() -> Up() , EventHandler::GetInstance() -> Right());
@@ -26,11 +27,15 @@ void GameStage1::Update() {
 
 void GameStage1::Render() {
     Texture::GetInstance() -> Draw("background" , 0 , 0 , SCREEN_WIDTH , SCREEN_HEIGHT);
+    Texture::GetInstance() -> DrawText("Use arrow keys to move fireboy" , 100 , 300);
+    Texture::GetInstance() -> DrawText("Use A,W,D to move watergirl" , 100 , 340);
+    Texture::GetInstance() -> DrawText("LEVEL 1" , 360 , 0);
     Engine::GetInstance() -> CurrentMap -> Draw();
     fireboyDoor -> Render();
     watergirlDoor -> Render();
     FireboyPlayer -> Draw(EventHandler::GetInstance() -> Left() , EventHandler::GetInstance() -> Right());
     WatergirlPlayer -> Draw(EventHandler::GetInstance() -> KeyA() , EventHandler::GetInstance() -> KeyD());
+    Music::GetInstance() -> Draw();
     Menu::GetInstance() -> Draw();
 }
 
