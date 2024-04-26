@@ -1,5 +1,6 @@
 # Fireboy and Watergirl - nhuhieu193
 - Demo game: [https://www.youtube.com/watch?v=KdkXpCEkYC4](https://www.youtube.com/watch?v=KdkXpCEkYC4)
+- Phá đảo : [https://www.youtube.com/watch?v=w8Y4XVgvx1Q](https://www.youtube.com/watch?v=w8Y4XVgvx1Q)
 
 # Giới thiệu
 Lửa và Nước là tựa game đem đến cho người chơi một cấu trúc gameplay độc đáo và thú vị, với một phong cách chơi đặc biệt. Trong trò chơi, người chơi sẽ có cơ hội điều khiển hai nhân vật chính thông qua việc tương tác với môi trường, họ sẽ phải giải quyết các câu đố và vượt qua màn chơi với nhiều độ khó khác nhau.
