@@ -100,7 +100,7 @@ bool Engine::Init() {
 }
 
 void Engine::Update() {
-    switch (GameStage + 0) {
+    switch (GameStage) {
         case 0: BackgroundStage::GetInstance() -> Update();break;
         case 1: GameStage1::GetInstance() -> Update();break;
         case 2: GameStage2::GetInstance() -> Update();break;
@@ -115,7 +115,7 @@ void Engine::Render() {
     SDL_SetRenderDrawColor(myRenderer , 0xFF , 0xFF , 0xFF , 0xFF);
     SDL_RenderClear(myRenderer);
 
-    switch (GameStage + 0) {
+    switch (GameStage) {
         case 0: BackgroundStage::GetInstance() -> Implement();break;
         case 1: GameStage1::GetInstance() -> Render();break;
         case 2: GameStage2::GetInstance() -> Render();break;
