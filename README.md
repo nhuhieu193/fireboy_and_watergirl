@@ -17,21 +17,32 @@ Lửa và Nước là tựa game đem đến cho người chơi một cấu trú
 
 **Bước 2:** Cài codeblocks-20.03mingw
 
-**Bước 3:** Thêm các file SDL2.dll, SDL2_image.dll, SDL2_mixer.dll, SDL2_ttf.dll vào thư mục gốc.
-
-**Bước 4:** Chạy file **Fireboy_and_Watergirl.exe** hoặc mở file **Fireboy_and_Watergirl.cbp** và chạy game bằng phím **F9**
+**Bước 3:** Chạy file **Fireboy_and_Watergirl.exe** hoặc mở file **Fireboy_and_Watergirl.cbp** và chạy game bằng phím **F9**
 
 # 1. Các thành phần trong game
 - Người chơi:
     * Fireboy: nhân vật cậu bé lửa
+      ![image](https://github.com/nhuhieu193/fireboy_and_watergirl/assets/158837114/692e859a-4738-48cc-aa30-c0ff7cff8a67)
+      
     * Watergirl: nhân vật cô bé nước
-- Các thành phần khác:
+      ![image](https://github.com/nhuhieu193/fireboy_and_watergirl/assets/158837114/ba4fe0d5-473c-458e-a8ad-f2fae7d0fee0)
+- Các chướng ngại vật khi chơi:
     * Nước
+      ![image](https://github.com/nhuhieu193/fireboy_and_watergirl/assets/158837114/e7d3fd99-4ce5-4c38-9f5d-33ca2e594cb1)
+
     * Dung nham
+      ![image](https://github.com/nhuhieu193/fireboy_and_watergirl/assets/158837114/074fd28f-38d3-4083-99a9-f4ec19bf1f9b)
+
     * Chất nhầy xanh
+      ![image](https://github.com/nhuhieu193/fireboy_and_watergirl/assets/158837114/de5627c3-31eb-4e91-8794-d80b7742a1e7)
+
+- Hệ thống các thanh trượt, sử dụng các nút cùng màu để điều khiển chúng
+  ![image](https://github.com/nhuhieu193/fireboy_and_watergirl/assets/158837114/d188bc4b-94ad-40d6-a1fd-7f1976a3a40f)
+
       
 # 2. Bắt đầu chơi
-
+ - Click chuột vào nút **Play** để bắt đầu chơi
+ - Có thể tắt âm thanh ngay ở góc trái màn hình
 ![Image](https://github.com/nhuhieu193/fireboy_and_watergirl/blob/master/Fireboy_and_Watergirl/media/IntroBackground.png)
 
 # 3. Cách chơi
