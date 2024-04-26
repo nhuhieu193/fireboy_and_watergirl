@@ -13,14 +13,17 @@ Lửa và Nước là tựa game đem đến cho người chơi một cấu trú
  - [5. Về source code của Game](#5-Về-source-code-của-Game)
 
 # 0. Cách tải game
+  - **Bước 1:** Đầu tiên, Cài codeblocks-20.03mingw và những thứ cần thiết để chạy được SDL2 trên CodeBlocks, bao gồm SDL2, SDL_Image, SDL_Mixer, SDL_TTF
 
-**Bước 1:** Clone repo này về hoặc chọn Code -> Download Zip
-
-**Bước 2:** Cài codeblocks-20.03mingw và những thứ cần thiết để chạy được SDL2 trên CodeBlocks, bao gồm SDL2, SDL_Image, SDL_Mixer, SDL_TTF.
-
-Tham khảo tại [lazyfoo.net](https://lazyfoo.net/tutorials/SDL/index.php)
-
-**Bước 3:** Chạy file **Fireboy_and_Watergirl.exe** hoặc mở file **Fireboy_and_Watergirl.cbp** và chạy game bằng phím **F9**
+    Tham khảo tại [lazyfoo.net](https://lazyfoo.net/tutorials/SDL/index.php)
+    
+  - **Bước 2:** Tải file Game:
+      * Nếu CodeBlocks 32 bit:
+         + Chọn Code -> Rồi Download File Zip của repo này về
+      * Nếu CodeBlocks 64 bit:
+         + Tải file zip (đầu tiên) từ release này về [https://github.com/nhuhieu193/fireboy_and_watergirl/releases/tag/download](https://github.com/nhuhieu193/fireboy_and_watergirl/releases/tag/download)
+     
+  - **Bước 3:** Click vào file fireboy_and_watergirl.exe để chơi
 
 # 1. Các thành phần trong game
 - **Người chơi**:
