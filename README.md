@@ -32,6 +32,8 @@ Lửa và Nước là tựa game đem đến cho người chơi một cấu trú
       
 # 2. Bắt đầu chơi
 
+![Image](https://github.com/nhuhieu193/fireboy_and_watergirl/blob/master/Fireboy_and_Watergirl/media/IntroBackground.png)
+
 # 3. Cách chơi
 - Game Fireboy and Watergirl là multiplayer game:
      * Fireboy: Dùng các phím mũi tên để di chuyển
