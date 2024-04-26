@@ -29,19 +29,20 @@ Lửa và Nước là tựa game đem đến cho người chơi một cấu trú
       
       ![image](https://github.com/nhuhieu193/fireboy_and_watergirl/assets/158837114/ba4fe0d5-473c-458e-a8ad-f2fae7d0fee0)
 - **Các chướng ngại vật khi chơi**:
-    * Nước
+    * **Nước** : Chỉ có cô bé nước mới có thể đi qua
       
       ![image](https://github.com/nhuhieu193/fireboy_and_watergirl/assets/158837114/e7d3fd99-4ce5-4c38-9f5d-33ca2e594cb1)
 
-    * Dung nham
+    * **Dung nham** : Chỉ có cậu bé lửa mới có thể đi qua
       
       ![image](https://github.com/nhuhieu193/fireboy_and_watergirl/assets/158837114/074fd28f-38d3-4083-99a9-f4ec19bf1f9b)
 
-    * Chất nhầy xanh
+    * **Chất nhầy xanh** : Cả 2 đều sẽ bị tiêu diệt nếu không may rơi vào
       
       ![image](https://github.com/nhuhieu193/fireboy_and_watergirl/assets/158837114/de5627c3-31eb-4e91-8794-d80b7742a1e7)
 
 - **Hệ thống các thanh trượt, sử dụng các nút cùng màu để điều khiển chúng**
+   + **Lưu ý :** Các thanh trượt này có thể bị chặn nếu trên đường chúng dịch chuyển, có va chạm với bất kỳ nhân vật nào.
   
   ![image](https://github.com/nhuhieu193/fireboy_and_watergirl/assets/158837114/d188bc4b-94ad-40d6-a1fd-7f1976a3a40f)
 
@@ -52,9 +53,9 @@ Lửa và Nước là tựa game đem đến cho người chơi một cấu trú
 ![Image](https://github.com/nhuhieu193/fireboy_and_watergirl/blob/master/Fireboy_and_Watergirl/media/IntroBackground.png)
 
 # 3. Cách chơi
-- Game Fireboy and Watergirl là multiplayer game:
-     * Fireboy: Dùng các phím mũi tên để di chuyển
-     * Watergirl: Dùng các phím W,A,D để di chuyển
+- Game Fireboy and Watergirl là **multiplayer game**:
+     * **Fireboy**: Dùng các **phím mũi tên** để di chuyển
+     * **Watergirl**: Dùng các **phím W,A,D** để di chuyển
 - Đây là tựa game 2 người chơi, cần có sự phối hợp ăn ý và chiến thuật phù hợp để giúp cả 2 nhân vật đến được cảnh cửa để qua màn.
 
   ![image](https://github.com/nhuhieu193/fireboy_and_watergirl/assets/158837114/4d1b58e7-c4b1-437f-a522-21e5fa7fd2ea)
@@ -79,4 +80,49 @@ Lửa và Nước là tựa game đem đến cho người chơi một cấu trú
 Khi thất bại, bạn cần phải chơi lại màn đó từ đầu.
  
 # 5. Về source code của Game
+- File main, Engine bao gồm logic game chính:
+   + Init()
+   + Events()
+   + Update()
+   + Render()
+   + Clean()
+  </div>
+  Và bên trong gọi đến những đối tượng khác.
+- Các File đối tượng:
+   * Fireboy : Chứa các thuộc tính và các hàm cần thiết cho cậu bé lửa
+   * Watergirl: Chứa các thuộc tính và các hàm cần thiết của cô bé nước
+   * FireboyDoor / WatergirlDoor : Cửa qua màn của 2 nhân vật
+   * Map : Chứa mọi thứ liên quan đến 1 màn chơi
+      + Các tile gạch
+      + Nước
+      + Dung nham
+      + Chất nhầy xanh
+      + Các thanh trượt và hệ nút bấm
+   * Menu : Quản lý những thứ liên quan đến các trạng thái của game
+      + Pause Game
+      + Level Passed
+      + Game Over
+   * Music : Quản lý âm thanh
+- Các File chức năng của Game:
+  * Timer : Điều khiển FPS của Game
+  * EvenHandler : Nhận Input
+  * RigidBody : Các trạng thái vật lý của nhân vật
+      + Vị trí
+      + Gia tốc
+      + Vận tốc
+      + ...
+  * Texture : Quản lý toàn bộ texture của Game
+  * Transform : Quản lý việc di chuyển trong nhân vật, bao gồm cả check collision
+  * Các File riêng quản lý từng màn chơi:
+      + BackgroundStage
+      + GameStage1
+      + GameStage2
+      + GameStage3
+      + GameStage4
+      + GameStage5
+- Ngoài ra các folder các lưu các assets của Game:
+   + Media : Lưu tất cả ảnh hoặc sprite sheet cần dùng
+   + Audio : Lưu các âm thanh
+   + Maplevel : Lưu các tài nguyên cần load khi bước vào mỗi màn chơi
+   + Fonts : Lưu các fonts cần thiết để viết các tutorial trong Game
 
